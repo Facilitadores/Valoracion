@@ -1,0 +1,10 @@
+body  {
+  background-image: url("../assets/Images/HeadLego.JPG");
+  background-color: #cccccc; 
+}
+
+.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+  
