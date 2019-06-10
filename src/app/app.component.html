@@ -46,7 +46,7 @@
             <option *ngFor="let celula of celulas">{{ celula.celula }} </option>
           </select>-->
           <select [(ngModel)]="selectioncelulas" name="selectioncelula" (change)="selectioncelula()">
-            <option>Seleccione!!</option>
+            <option value="">Seleccione!!</option>
             <option *ngFor="let celula of celulas">{{celula.celula}}</option>
           </select>
         </div>
