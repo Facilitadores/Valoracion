@@ -598,8 +598,8 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Admin\Documents\JULIAN\Valoracion\src\styles.css */"./src/styles.css");
-module.exports = __webpack_require__(/*! C:\Users\Admin\Documents\JULIAN\Valoracion\node_modules\bootstrap\dist\css\bootstrap.css */"./node_modules/bootstrap/dist/css/bootstrap.css");
+__webpack_require__(/*! C:\Users\admin\Documents\Valoracion1\Front\Valoracion\src\styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! C:\Users\admin\Documents\Valoracion1\Front\Valoracion\node_modules\bootstrap\dist\css\bootstrap.css */"./node_modules/bootstrap/dist/css/bootstrap.css");
 
 
 /***/ })

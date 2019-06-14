@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class FacilitadorService {
   url = "http://ec2-3-14-3-164.us-east-2.compute.amazonaws.com:8080/valoracion"
   constructor(private http: HttpClient) { }
-
+//"http://ec2-3-14-3-164.us-east-2.compute.amazonaws.com:8080/valoracion"
   getFacilitadores(celula: string): Observable<any> {
     return this.http.get(`${this.url}/facilitadorcelula/${celula}`);
 

@@ -22,7 +22,10 @@
 <br>
 <div class="row">
   <div class="col-sm-2">
-    <img src="/assets/Images/Mainset_Lego.jpg" width="250" height="400">
+    <br>
+    <br>
+    <br>
+    <img src="/assets/Images/pensamientoAgil.png" width="250" height="400">
   </div>
   <div class="col-sm-8">
     <div class="row">
@@ -39,16 +42,18 @@
       </div>
       <div class="col-sm-3" *ngIf="respuesta1.usuario">
         <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <label class="input-group-text" for="inputGroupSelect01">Célula</label>
+          <div class="input-group-prepend" >
+            <label class="input-group-text" for="inputGroupSelect01" *ngIf="!facilitador">Célula</label>
           </div>
           <!--<select class="custom-select" id="inputGroupSelect01">
             <option *ngFor="let celula of celulas">{{ celula.celula }} </option>
           </select>-->
-          <select [(ngModel)]="selectioncelulas" name="selectioncelula" (change)="selectioncelula()">
-            <option value="">Seleccione!!</option>
+          <select [(ngModel)]="selectioncelulas"  name="selectioncelula" (change)="selectioncelula()" *ngIf="!facilitador">
             <option *ngFor="let celula of celulas">{{celula.celula}}</option>
           </select>
+          <button type="button" class="btn btn-light" *ngIf="facilitador">
+            Célula: <span class="badge badge-light">{{selectioncelulas}}</span>
+          </button>
         </div>
       </div>
       <div class="col-sm-5" *ngIf="selectioncelulas">
@@ -357,7 +362,7 @@
               </div>
             </div>
             <div class="card-footer">
-              <button type="submit" class="btn btn-primary" >Guardar
+              <button type="submit" class="btn btn-primary" *ngIf="showR6">Guardar
               </button>
             </div>
           </form>
@@ -460,7 +465,7 @@
     </div>
   </div>
   <div class="col-sm-2">
-    <img src="/assets/Images/VSTI.JPG" width="200" height="200">
+    <img src="/assets/Images/VSTI.png" width="250" height="330">
   </div>
 </div>
       <br>
@@ -488,35 +493,35 @@
                         <div class="dropdown show">
                           <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <!--{{ respuesta1.pre1Pi1 ? respuesta1.pre1Pi1 : "Respuesta"}}-->Respuestas
+                           <!--  {{ respuesta1.pre1Pi1 ? respuesta1.pre1Pi1 : "Respuesta"}}-->Respuestas
                           </a>
-
                           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            
                             <div class="form-check">
                               <input class="form-check-input" type="radio" name="pre1Pi1" id="Pre1Pi1Nunca" value="1"
-                                checked [(ngModel)]=respuesta1.pre1Pi1>
-                              <label class="form-check-label" for="Nunca">
+                                checked [(ngModel)]=respuesta1.pre1Pi1 >
+                              <label class="form-check-label" for="Pre1Pi1Nunca">
                                 Nunca
                               </label>
                             </div>
                             <div class="form-check">
-                              <input class="form-check-input" type="radio" name="pre1Pi1" id="Pre1Pi1Ocasionalmente"
+                             <input class="form-check-input" type="radio" name="pre1Pi1" id="Pre1Pi1Ocasionalmente"
                                 value="2"  [(ngModel)]=respuesta1.pre1Pi1>
-                              <label class="form-check-label" for="Ocasionalmente">
+                              <label class="form-check-label" for="Pre1Pi1Ocasionalmente">
                                 Ocasionalmente
                               </label>
                             </div>
                             <div class="form-check">
                               <input class="form-check-input" type="radio" name="pre1Pi1" id="Pre1Pi1Frecuentemente"
                                 value="3"  [(ngModel)]=respuesta1.pre1Pi1>
-                              <label class="form-check-label" for="Frecuentemente">
+                              <label class="form-check-label" for="Pre1Pi1Frecuentemente">
                                 Frecuentemente
                               </label>
                             </div>
                             <div class="form-check">
                               <input class="form-check-input" type="radio" name="pre1Pi1" id="Pre1Pi1Siempre" value="4"
                                [(ngModel)]=respuesta1.pre1Pi1>
-                              <label class="form-check-label" for="Siempre">
+                              <label class="form-check-label" for="Pre1Pi1Siempre">
                                 Siempre
                               </label>
                             </div>
@@ -541,28 +546,28 @@
                             <div class="form-check">
                               <input class="form-check-input" type="radio" name="respuesta1.pre2Pi1" id="Pre2Pi1Nunca"
                                 value="1" checked [(ngModel)]=respuesta1.pre2Pi1>
-                              <label class="form-check-label" for="Nunca">
+                              <label class="form-check-label" for="Pre2Pi1Nunca">
                                 Nunca
                               </label>
                             </div>
                             <div class="form-check">
                               <input class="form-check-input" type="radio" name="respuesta1.pre2Pi1"
                                 id="Pre2Pi1Ocasionalmente" value="2" [(ngModel)]=respuesta1.pre2Pi1>
-                              <label class="form-check-label" for="Ocasionalmente">
+                              <label class="form-check-label" for="Pre2Pi1Ocasionalmente">
                                 Ocasionalmente
                               </label>
                             </div>
                             <div class="form-check">
                               <input class="form-check-input" type="radio" name="respuesta1.pre2Pi1"
                                 id="Pre2Pi1Freccuentemente" value="3" [(ngModel)]=respuesta1.pre2Pi1>
-                              <label class="form-check-label" for="Frecuentemente">
+                              <label class="form-check-label" for="Pre2Pi1Freccuentemente">
                                 Frecuentemente
                               </label>
                             </div>
                             <div class="form-check">
                               <input class="form-check-input" type="radio" name="respuesta1.pre2Pi1" id="Pre2Pi1Siempre"
                                 value="4" [(ngModel)]=respuesta1.pre2Pi1>
-                              <label class="form-check-label" for="Siempre">
+                              <label class="form-check-label" for="Pre2Pi1Siempre">
                                 Siempre
                               </label>
                             </div>
@@ -585,34 +590,35 @@
                           <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Respuestas
                             <!--{{ respuesta1.pre3Pi1 ? respuesta1.pre3Pi1 : "Respuesta"}}-->
+                    
                           </a>
 
                           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <div class="form-check">
                               <input class="form-check-input" type="radio" name="pre3Pi1" id="Pre3Pi1Nunca" value="1"
                                 checked [(ngModel)]=respuesta1.pre3Pi1>
-                              <label class="form-check-label" for="Nunca">
+                              <label class="form-check-label" for="Pre3Pi1Nunca">
                                 Nunca
                               </label>
                             </div>
                             <div class="form-check">
                               <input class="form-check-input" type="radio" name="pre3Pi1" id="Pre3Pi1Ocasionalmente"
                                 value="2" [(ngModel)]=respuesta1.pre3Pi1>
-                              <label class="form-check-label" for="Ocasionalmente">
+                              <label class="form-check-label" for="Pre3Pi1Ocasionalmente">
                                 Ocasionalmente
                               </label>
                             </div>
                             <div class="form-check">
                               <input class="form-check-input" type="radio" name="pre3Pi1" id="Pre3PiFrecuentemente"
                                 value="3" [(ngModel)]=respuesta1.pre3Pi1>
-                              <label class="form-check-label" for="Frecuentemente">
+                              <label class="form-check-label" for="Pre3PiFrecuentemente">
                                 Frecuentemente
                               </label>
                             </div>
                             <div class="form-check">
                               <input class="form-check-input" type="radio" name="pre3Pi1" id="Pre3PiSiempre" value="4"
                                 [(ngModel)]=respuesta1.pre3Pi1>
-                              <label class="form-check-label" for="Siempre">
+                              <label class="form-check-label" for="Pre3PiSiempre">
                                 Siempre
                               </label>
                             </div>

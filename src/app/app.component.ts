@@ -28,7 +28,7 @@ export class AppComponent {
 
       });
     }
-
+    
   showR1:boolean = false;
   showR2:boolean = false;
   showR3:boolean = false;
@@ -135,7 +135,7 @@ console.log(this.valoracion1);
     
     this.respuesta2.promedioP2 = promedio
     this.respuesta2.usuario = this.respuesta1.usuario
-
+    this.respuesta2.celula = this.selectioncelulas
 
     this.facilitadorService.guardarP2(this.respuesta2).subscribe((data) => 
      {
