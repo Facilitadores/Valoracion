@@ -445,7 +445,7 @@ __webpack_require__.r(__webpack_exports__);
 var FacilitadorService = /** @class */ (function () {
     function FacilitadorService(http) {
         this.http = http;
-        this.url = "http://ec2-3-14-3-164.us-east-2.compute.amazonaws.com:4200:8080/valoracion";
+        this.url = "http://ec2-3-14-3-164.us-east-2.compute.amazonaws.com:4200/valoracion";
     }
     //"http://ec2-3-14-3-164.us-east-2.compute.amazonaws.com:4200:8080/valoracion"
     FacilitadorService.prototype.getFacilitadores = function (celula) {
@@ -461,31 +461,31 @@ var FacilitadorService = /** @class */ (function () {
         return this.http.get(this.url + "/preguntas");
     };
     FacilitadorService.prototype.guardar = function (data) {
-        return this.http.post('http://ec2-3-14-3-164.us-east-2.compute.amazonaws.com:4200:8080/valoracion/preguntas', data);
+        return this.http.post('http://ec2-3-14-3-164.us-east-2.compute.amazonaws.com:4200/valoracion/preguntas', data);
         //alert("User created successfully.");
     };
     FacilitadorService.prototype.guardarP2 = function (data) {
-        return this.http.post('http://ec2-3-14-3-164.us-east-2.compute.amazonaws.com:4200:8080/valoracion/preguntas2', data);
+        return this.http.post('http://ec2-3-14-3-164.us-east-2.compute.amazonaws.com:4200/valoracion/preguntas2', data);
         //alert("User created successfully.");
     };
     FacilitadorService.prototype.guardarP3 = function (data) {
-        return this.http.post('http://ec2-3-14-3-164.us-east-2.compute.amazonaws.com:4200:8080/valoracion/preguntas3', data);
+        return this.http.post('http://ec2-3-14-3-164.us-east-2.compute.amazonaws.com:4200/valoracion/preguntas3', data);
         //alert("User created successfully.");
     };
     FacilitadorService.prototype.guardarP4 = function (data) {
-        return this.http.post('http://ec2-3-14-3-164.us-east-2.compute.amazonaws.com:4200:8080/valoracion/preguntas4', data);
+        return this.http.post('http://ec2-3-14-3-164.us-east-2.compute.amazonaws.com:4200/valoracion/preguntas4', data);
         //alert("User created successfully.");
     };
     FacilitadorService.prototype.guardarP5 = function (data) {
-        return this.http.post('http://ec2-3-14-3-164.us-east-2.compute.amazonaws.com:4200:8080/valoracion/preguntas5', data);
+        return this.http.post('http://ec2-3-14-3-164.us-east-2.compute.amazonaws.com:4200/valoracion/preguntas5', data);
         //alert("User created successfully.");
     };
     FacilitadorService.prototype.guardarP6 = function (data) {
-        return this.http.post('http://ec2-3-14-3-164.us-east-2.compute.amazonaws.com:4200:8080/valoracion/preguntas6', data);
+        return this.http.post('http://ec2-3-14-3-164.us-east-2.compute.amazonaws.com:4200/valoracion/preguntas6', data);
         //alert("User created successfully.");
     };
     FacilitadorService.prototype.guardarGeneral = function (data) {
-        return this.http.post('http://ec2-3-14-3-164.us-east-2.compute.amazonaws.com:4200:8080/valoracion/preguntasgeneral', data);
+        return this.http.post('http://ec2-3-14-3-164.us-east-2.compute.amazonaws.com:4200/valoracion/preguntasgeneral', data);
         //alert("User created successfully.");
     };
     FacilitadorService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
