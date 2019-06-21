@@ -97,7 +97,7 @@ export class AppComponent {
   }
 
   guardarP1(){
-   console.log(this.respuesta1);
+//   console.log(this.respuesta1);
 
    var pre1Pi1 = this.respuesta1.pre1Pi1
    var pre2Pi1 = this.respuesta1.pre2Pi1 
@@ -120,13 +120,13 @@ export class AppComponent {
     }else if(this.respuesta1.promedioP1 > 3 ){
       this.valoracion1 = "Maestro"
     }
-    
+console.log(this.respuesta1);
 console.log(this.valoracion1);
   })
 }
 
   guardarP2(){
-    console.log(this.respuesta2);
+  //  console.log(this.respuesta2);
 
     var pre1Pi2 = this.respuesta2.pre1Pi2
     var pre2Pi2 = this.respuesta2.pre2Pi2 
@@ -149,11 +149,13 @@ console.log(this.valoracion1);
     }else if(this.respuesta2.promedioP2 > 3 ){
       this.valoracion2 = "Maestro"
     }
+    console.log(this.respuesta2);
+    console.log(this.valoracion2);
      })
    }
 
    guardarP3(){
-    console.log(this.respuesta3);
+  //  console.log(this.respuesta3);
     
     var pre1Pi3 = this.respuesta3.pre1Pi3
     var pre2Pi3 = this.respuesta3.pre2Pi3 
@@ -176,11 +178,13 @@ console.log(this.valoracion1);
     }else if(this.respuesta3.promedioP3 > 3 ){
       this.valoracion3 = "Maestro"
     }
+    console.log(this.respuesta3);
+console.log(this.valoracion3);
      })
    }
 
    guardarP4(){
-    console.log(this.respuesta4);
+  //  console.log(this.respuesta4);
     
     var pre1Pi4 = this.respuesta4.pre1Pi4
     var pre2Pi4 = this.respuesta4.pre2Pi4 
@@ -195,7 +199,7 @@ console.log(this.valoracion1);
     this.facilitadorService.guardarP4(this.respuesta4).subscribe((data) => 
      {
       this.showR4=true;
-      console.log(this.showR4);
+     // console.log(this.showR4);
       if (this.respuesta4.promedioP4 == 1) {
         this.valoracion4 = "Novato"
      } else if(this.respuesta4.promedioP4 > 1 && this.respuesta4.promedioP4 <= 2){
@@ -205,12 +209,13 @@ console.log(this.valoracion1);
     }else if(this.respuesta4.promedioP4 > 3 ){
       this.valoracion4 = "Maestro"
     }
+    console.log(this.respuesta4);
     console.log(this.valoracion4);
      })
    }
 
    guardarP5(){
-    console.log(this.respuesta5);
+  //  console.log(this.respuesta5);
     
     var pre1Pi5 = this.respuesta5.pre1Pi5
     var pre2Pi5 = this.respuesta5.pre2Pi5 
@@ -234,11 +239,13 @@ console.log(this.valoracion1);
     }else if(this.respuesta5.promedioP5 > 3 ){
       this.valoracion5 = "Maestro"
     }
+    console.log(this.respuesta5);
+    console.log(this.valoracion5);
      })
    }
 
    guardarP6(){
-    console.log(this.respuesta6);
+   // console.log(this.respuesta6);
     
     var pre1Pi6 = this.respuesta6.pre1Pi6
     var pre2Pi6 = this.respuesta6.pre2Pi6 
@@ -262,17 +269,26 @@ console.log(this.valoracion1);
     }else if(this.respuesta6.promedioP6 > 3 ){
       this.valoracion6 = "Maestro"
     }
+    console.log(this.respuesta5);
+    console.log(this.valoracion5);
      })
    }
 
    guardaGeneral(){
    // console.log(this.respuestageneral);
     this.showGeneral=true; 
-    var promedio = ((parseInt(this.respuesta1.promedioP1) + parseInt(this.respuesta2.promedioP2) + parseInt(this.respuesta3.promedioP3)+ parseInt(this.respuesta4.promedioP4)+ parseInt(this.respuesta5.promedioP5)+ parseInt(this.respuesta6.promedioP6))/6).toFixed(2)
-    this.respuestageneral.promedio_general = promedio
+    this.respuestageneral.suma = (parseFloat(this.respuesta1.promedioP1) + parseFloat(this.respuesta2.promedioP2) + parseFloat(this.respuesta3.promedioP3)+ parseFloat(this.respuesta4.promedioP4)+ parseFloat(this.respuesta5.promedioP5)+ parseFloat(this.respuesta6.promedioP6))
+    console.log(this.respuesta1.promedioP1+"-"+this.respuesta2.promedioP2+"-"+this.respuesta3.promedioP3+"-"+this.respuesta4.promedioP4+"-"+this.respuesta5.promedioP5+"-"+this.respuesta6.promedioP6);
+    console.log(this.respuestageneral.suma);
+   this.respuestageneral.promedio_general = (parseFloat(this.respuestageneral.suma)/6).toFixed(2);;
+   console.log(this.respuestageneral.promedio_general);
+    // var promedio_general = (parseInt(suma)/6).toFixed(2);
+   // this.respuestageneral.promedio_general = promedio_general;
+   // console.log("Suma es: "+ suma +" y este "+ promedio_general);
+   // this.respuestageneral.promedio_general = promedio
     this.respuestageneral.celula = this.respuesta1.celula
     this.respuestageneral.usuario = this.respuesta1.usuario
-    //console.log(this.respuestageneral);
+    
     
     this.facilitadorService.guardarGeneral(this.respuestageneral).subscribe((data) => 
      {
