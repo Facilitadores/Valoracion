@@ -74,12 +74,16 @@
               </div>
             <div class="card bg-link">
                 <div class="card-header">
-                  El Diagnóstico  es: {{valoracionGeneral}}
+                  Diagnóstico Finalizado!!
+               <!--    El Diagnóstico  es: {{valoracionGeneral}} -->
                 </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-3 offset-md-5">
                         <div class="card-body" *ngIf="valoracionGeneral==='Novato'">
+                            <img src="/assets/Images/OK.jpg" width="100" height="100">
+                        </div>
+                      <!--  <div class="card-body" *ngIf="valoracionGeneral==='Novato'">
                             <img src="/assets/Images/novato.png" width="100" height="100">
                         </div>
                         <div class="card-body" *ngIf="valoracionGeneral==='Competente'">
@@ -90,12 +94,12 @@
                         </div>
                         <div class="card-body" *ngIf="valoracionGeneral==='Maestro'">
                             <img src="/assets/Images/maestro.png" width="100" height="100">
-                        </div>
+                        </div>-->
                     </div>
                 </div>
-                <div class="card-footer">
+               <!--  <div class="card-footer">
                   El promedio del Diagnóstico  es: {{respuestageneral.promedio_general}}
-                </div>
+                </div>-->
             </div> 
           </div>
           <div class="card-body">
