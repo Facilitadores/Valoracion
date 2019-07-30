@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class EquiposService {
-  url = "http://localhost:8080/valoracion"
+  url = "http://ec2-3-14-3-164.us-east-2.compute.amazonaws.com:8080/valoracion"
   constructor(private http: HttpClient) { }
 //"http://ec2-3-14-3-164.us-east-2.compute.amazonaws.com:8080/valoracion"
 //"http://localhost:8080/valoracion"
