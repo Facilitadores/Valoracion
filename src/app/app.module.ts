@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FacilitadorService } from './services/facilitador.service';
+import { EquiposService } from './services/equipos.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 
@@ -19,7 +19,7 @@ import {FormsModule} from '@angular/forms';
     HttpClientModule, FormsModule
   ],
   providers: [
-    FacilitadorService
+    EquiposService
   ],
   bootstrap: [AppComponent]
 })
