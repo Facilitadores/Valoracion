@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class EquiposService {
-  url = "http://localhost:8080/valoracion"
+  url = "http://ec2-3-14-3-164.us-east-2.compute.amazonaws.com:8080/valoracion"
   constructor(private http: HttpClient) { }
 //"http://ec2-3-14-3-164.us-east-2.compute.amazonaws.com:8080/valoracion"
 //"http://localhost:8080/valoracion"
@@ -68,7 +68,7 @@ getfacilitador(celula: string): Observable<any> {
     return this.http.post(`${this.url}/guardarPilar4`, data);
     //alert("User created successfully.");
   }
-  
+/*
   guardarP2(data: any) {
     return this.http.post('http://localhost:8080/valoracion/preguntas3', data);
     //alert("User created successfully.");
@@ -97,7 +97,7 @@ getfacilitador(celula: string): Observable<any> {
   guardarGeneral(data: any) {
     return this.http.post('http://localhost:8080/valoracion/preguntasgeneral', data);
     //alert("User created successfully.");
-  }
+  }*/
 }
 
 

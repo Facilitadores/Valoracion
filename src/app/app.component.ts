@@ -224,8 +224,58 @@ export class AppComponent {
                   {  })
               this.showFinalizar=true;
             }
+          
             
-    
+            informacion:any =
+            {
+              celula:null, facilitador:null,madurez: null, nuevamadurez: null, tipovaloracion:null, madurezNum:null
+            } 
+
+
+
+            constructor(private EquiposService:EquiposService)
+            {   }
+              ngOnInit() {
+                this.EquiposService.getDireccion().subscribe((data) => 
+              {
+                this.direccion = data;
+                //console.log(this.direccion)
+                //console.log(this.selectioncelulas)
+              })
+             /* this.EquiposService.getPreguntas().subscribe((data) => 
+              {
+                this.celulas = data;
+              })*/
+            }
+            
+            Informacion() {
+
+              this.informacion.celula = this.selectioncelulas
+              this.informacion.facilitador = this.facilitador
+              this.informacion.madurez = this.madurez
+              this.informacion.tipo_valoracion = this.tipoValoracion
+          
+              if (this.informacion.madurez == "Novato") {
+                this.informacion.madurezNum = 1
+                } else if (this.informacion.madurez == "Ejecutor") {
+                    this.informacion.madurezNum = 4
+                } else if (this.informacion.madurez == "Gestionador") {
+                  this.informacion.madurezNum = 2
+                } else if (this.informacion.madurez == "Técnico") {
+                  this.informacion.madurezNum = 3
+                } else if (this.informacion.madurez == "Ágil") {
+                  this.informacion.madurezNum = 5
+                } else{
+                  this.informacion.madurezNum = 0
+                }
+                this.showPilar1=true;  
+          this.EquiposService.guardarInformacion(this.informacion).subscribe((data) => 
+               {
+                         
+             })
+             //console.log(this.informacion);
+            }
+    /*
   showR1:boolean = false;      
   showR2:boolean = false;
   showR3:boolean = false;
@@ -242,10 +292,7 @@ export class AppComponent {
   valoracion6:string = null;
   valoracionGeneral:string = null;
 
-  informacion:any =
-  {
-    celula:null, facilitador:null,madurez: null, nuevamadurez: null, tipovaloracion:null, madurezNum:null
-  } 
+ 
 
   respuesta2:any =
   {
@@ -277,48 +324,7 @@ export class AppComponent {
     fortalezas: null, oportunidades: null, promedio_general:null
   } 
 
-  constructor(private EquiposService:EquiposService)
-  {   }
-    ngOnInit() {
-      this.EquiposService.getDireccion().subscribe((data) => 
-    {
-      this.direccion = data;
-      //console.log(this.direccion)
-      //console.log(this.selectioncelulas)
-    })
-   /* this.EquiposService.getPreguntas().subscribe((data) => 
-    {
-      this.celulas = data;
-    })*/
-  }
-
-  Informacion() {
-
-    this.informacion.celula = this.selectioncelulas
-    this.informacion.facilitador = this.facilitador
-    this.informacion.madurez = this.madurez
-    this.informacion.tipo_valoracion = this.tipoValoracion
-
-    if (this.informacion.madurez == "Novato") {
-      this.informacion.madurezNum = 1
-      } else if (this.informacion.madurez == "Ejecutor") {
-          this.informacion.madurezNum = 4
-      } else if (this.informacion.madurez == "Gestionador") {
-        this.informacion.madurezNum = 2
-      } else if (this.informacion.madurez == "Técnico") {
-        this.informacion.madurezNum = 3
-      } else if (this.informacion.madurez == "Ágil") {
-        this.informacion.madurezNum = 5
-      } else{
-        this.informacion.madurezNum = 0
-      }
-      this.showPilar1=true;  
-this.EquiposService.guardarInformacion(this.informacion).subscribe((data) => 
-     {
-               
-   })
-   //console.log(this.informacion);
-  }
+ 
     guardarP2(){
   //  console.log(this.respuesta2);
 
@@ -488,6 +494,6 @@ console.log(this.valoracion3);
     }
      })
    }
-   
+   */
    
 }
