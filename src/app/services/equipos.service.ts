@@ -6,9 +6,9 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class EquiposService {
-  url = "http://ec2-3-14-3-164.us-east-2.compute.amazonaws.com:8080/valoracion"
+  url = "http://ec2-13-59-5-126.us-east-2.compute.amazonaws.com:8080/valoracion"
   constructor(private http: HttpClient) { }
-//"http://ec2-3-14-3-164.us-east-2.compute.amazonaws.com:8080/valoracion"
+//"http://ec2-13-59-5-126.us-east-2.compute.amazonaws.com:8080/valoracion"
 //"http://localhost:8080/valoracion"
 
 //trae las direcciones
@@ -39,6 +39,11 @@ getfacilitador(celula: string): Observable<any> {
   return this.http.get(`${this.url}/facilitador_celula/${celula}`);
 }
 
+resultadofinal(celula: string): Observable<any> {
+  return this.http.get(`${this.url}/resultadofinal/${celula}`);
+}
+
+
   /*
   buscarRespuesta(celula: string, usuario: string): Observable<any> {
     return this.http.get(`${this.url}/preguntas/${celula}/${usuario}`);
@@ -49,7 +54,6 @@ getfacilitador(celula: string): Observable<any> {
     return this.http.post(`${this.url}/guardarinformacion`, data);
     //alert("User created successfully.");
   }
-
 
   guardarPilar1(data: any) {
     return this.http.post(`${this.url}/guardarPilar1`, data);
