@@ -24,7 +24,42 @@ export class AppComponent {
   compoMenor: string = null;
   fullstack: string = null;
   direccion: string = null;
-
+  tipo_celula: string = null;
+  devops1: string = null;
+  devops2: string = null;
+  devops3: string = null;
+  devops4: string = null;
+  devops5: string = null;
+  arquitect1: string = null;
+  arquitect2: string = null;
+  arquitect3: string = null;
+  arquitect4: string = null;
+  arquitect5: string = null;
+  estandar1: string = null;
+  estandar2: string = null;
+  estandar3: string = null;
+  estandar4: string = null;
+  aplicaciones1: string = null;
+  aplicaciones2: string = null;
+  aplicaciones3: string = null;
+  aplicaciones4: string = null;
+  aplicaciones5: string = null;
+  hymsoluciones1 : string = null;
+  hymsoluciones2 : string = null;
+  hymsoluciones3 : string = null;
+  hymsoluciones4 : string = null;
+  usd_usm1 : string = null;
+  usd_usm2 : string = null;
+  usd_usm3 : string = null;
+  usd_usm4 : string = null;
+  mejores_precticas1 : string = null;
+  mejores_precticas2 : string = null;
+  mejores_precticas3 : string = null;
+  mejores_precticas4 : string = null;
+  orienta_negocio1 : string = null;
+  orienta_negocio2 : string = null;
+  orienta_negocio3 : string = null;
+  orienta_negocio4 : string = null;
 
   selectiondirecciones() {
     return this.EquiposService.getcompomayor(this.selectiondireccion). 
@@ -75,14 +110,53 @@ export class AppComponent {
           seleccelula() {
             return this.EquiposService.getfacilitador(this.selectioncelulas). 
             subscribe(
-              (data:any)=>
+              (preguntas:any)=>
               {
-               console.log(data);
-               this.facilitador = data[0][0]
-               this.madurez = data[0][1]
+               console.log(preguntas);
+               this.facilitador = preguntas[0][2]
+               this.madurez = preguntas[0][1]
+               this.tipo_celula = preguntas[0][4]
+               this.devops1 = preguntas[0][5]
+               this.devops2 = preguntas[0][6]
+               this.devops3 = preguntas[0][7]
+               this.devops4 = preguntas[0][8]
+               this.devops5 = preguntas[0][9]
+               this.arquitect1 = preguntas[0][10]
+               this.arquitect2 = preguntas[0][11]
+               this.arquitect3 = preguntas[0][12]
+               this.arquitect4 = preguntas[0][13]
+               this.arquitect5 = preguntas[0][14]
+               this.estandar1 = preguntas[0][15]
+               this.estandar2 = preguntas[0][16]
+               this.estandar3 = preguntas[0][17]
+               this.estandar4 = preguntas[0][18]
+               this.aplicaciones1 = preguntas[0][19]
+               this.aplicaciones2 = preguntas[0][20]
+               this.aplicaciones3 = preguntas[0][21]
+               this.aplicaciones4 = preguntas[0][22]
+               this.aplicaciones5 = preguntas[0][23]
+
+               this.hymsoluciones1 = preguntas[0][24]
+               this.hymsoluciones2 = preguntas[0][25]
+               this.hymsoluciones3 = preguntas[0][26]
+               this.hymsoluciones4 = preguntas[0][27]
+               this.usd_usm1 = preguntas[0][28]
+               this.usd_usm2 = preguntas[0][29]
+               this.usd_usm3 = preguntas[0][30]
+               this.usd_usm4 = preguntas[0][31]
+               this.mejores_precticas1 = preguntas[0][32]
+               this.mejores_precticas2 = preguntas[0][33]
+               this.mejores_precticas3 = preguntas[0][34]
+               this.mejores_precticas4 = preguntas[0][35]
+               this.orienta_negocio1 = preguntas[0][36]
+               this.orienta_negocio2 = preguntas[0][37]
+               this.orienta_negocio3 = preguntas[0][38]
+               this.orienta_negocio4 = preguntas[0][39]
+
               });
             }
           
+
   
             showPilar1:boolean = false;
             showPilar2:boolean = false;
@@ -103,7 +177,7 @@ export class AppComponent {
             resultadovaloracion: string = null;
             min: number = null;
 
-
+     
             Pilar1() {
             if (this.Pilar1Comportamiento.comportamientonum == 1) {
                this.resultpilar1 = "Novato"
@@ -127,52 +201,52 @@ export class AppComponent {
             Pilar2() {
              console.log(this.Pilar2Tecnico);
               if (this.Pilar2Tecnico.tecniconumeDevops == 20) {
-                this.Pilar2Tecnico.tecnicoDevops = "El equipo implementa prácticas de DevOps sobre el pilar CM 'Configuration Management'.";
+                this.Pilar2Tecnico.tecnicoDevops = this.devops1;
               } else if (this.Pilar2Tecnico.tecniconumeDevops == 40) {
-                this.Pilar2Tecnico.tecnicoDevops = "El equipo implementa prácticas de DevOps sobre el pilar CI.";
+                this.Pilar2Tecnico.tecnicoDevops = this.devops2;
               }else if (this.Pilar2Tecnico.tecniconumeDevops == 60) {
-                this.Pilar2Tecnico.tecnicoDevops = "El equipo despliega continuamente sus artefactos (Pipeline CD).";
+                this.Pilar2Tecnico.tecnicoDevops = this.devops3;
               }else if (this.Pilar2Tecnico.tecniconumeDevops == 80) {
-                this.Pilar2Tecnico.tecnicoDevops = "El equipo hace RM (Release Management) de pruebas independiente al pipeline del proyecto.";
+                this.Pilar2Tecnico.tecnicoDevops = this.devops4;
               }else {
-                this.Pilar2Tecnico.tecnicoDevops = "El equipo ejecuta pruebas automatizadas integradas al pipeline del proyecto.";
+                this.Pilar2Tecnico.tecnicoDevops = this.devops5;
               }
           //    this.Pilar2Tecnico.resultpilar2 = (parseFloat(this.Pilar2Tecnico.tecniconumeDevops)*0.5).toFixed(2);
               this.Pilar2Tecnico.tecniconumeDevops = (parseFloat(this.Pilar2Tecnico.tecniconumeDevops)*0.5).toFixed(2);
               if (this.Pilar2Tecnico.arquitectnumeDevops == 20) {
-                this.Pilar2Tecnico.arquitectDevops = "El equipo tiene un conocimiento general de las capas de la arquitectura de la solución.";
+                this.Pilar2Tecnico.arquitectDevops = this.arquitect1;
               } else if (this.Pilar2Tecnico.arquitectnumeDevops == 40) {
-                this.Pilar2Tecnico.arquitectDevops = "El equipo integra lineamientos de arquitectura de la solución con los diseños y desarrollos.";
+                this.Pilar2Tecnico.arquitectDevops =  this.arquitect2;
               }else if (this.Pilar2Tecnico.arquitectnumeDevops == 60) {
-                this.Pilar2Tecnico.arquitectDevops = "El equipo entiende y comprende los diseños de arquitectura de la solución.";
+                this.Pilar2Tecnico.arquitectDevops =  this.arquitect3;
               }else if (this.Pilar2Tecnico.arquitectnumeDevops == 80) {
-                this.Pilar2Tecnico.arquitectDevops = "El equipo tiene un Nivel medio alto, conocimientos de arquitectura de la solución. *El equipo desarrolla conocimiento en la arquitectura aplicativa del ecosistema.";
+                this.Pilar2Tecnico.arquitectDevops =  this.arquitect4;
               }else {
-                this.Pilar2Tecnico.arquitectDevops = "El equipo tiene un Nivel alto en conocimientos de arquitectura de la solución. *El equipo tiene conocimiento alto en escalabilidad, mantenimiento de las aplicaciones.";
+                this.Pilar2Tecnico.arquitectDevops = this.arquitect5;
               }
             //  this.Pilar2Tecnico.resultpilar2 = parseFloat(this.Pilar2Tecnico.resultpilar2) + (parseFloat(this.Pilar2Tecnico.arquitectnumeDevops)*0.17).toFixed(2);
               this.Pilar2Tecnico.arquitectnumeDevops = (parseFloat(this.Pilar2Tecnico.arquitectnumeDevops)*0.17).toFixed(2);
               if (this.Pilar2Tecnico.estandaresnume == 25) {
-                this.Pilar2Tecnico.estandares = "El equipo no maneja Estandar de trabajo con que interactúan en la célula. *El equipo requiere constantes asesorías para la labor.";
+                this.Pilar2Tecnico.estandares = this.estandar1;
               } else if (this.Pilar2Tecnico.estandaresnume == 50) {
-                this.Pilar2Tecnico.estandares = "El equipo tiene un conocimiento Medio en los Estándares de trabajo con que interactúan en la célula.";
+                this.Pilar2Tecnico.estandares = this.estandar2;
               }else if (this.Pilar2Tecnico.estandaresnume == 75) {
-                this.Pilar2Tecnico.estandares = "El equipo tiene un conocimiento Alto en los Estándares de trabajo con que interactúan en la célula. *El equipo desarrolla la habilidad de solucionar problemas eficientemente, optimizando los recursos del marco de trabajo de su especialidad.";
+                this.Pilar2Tecnico.estandares = this.estandar3;
               }else {
-                this.Pilar2Tecnico.estandares = "El equipo tiene conocimiento Avanzado - Alto en los Estádares de trabajo con que interactúan en la célula.";
+                this.Pilar2Tecnico.estandares = this.estandar4;
               }
           //    this.Pilar2Tecnico.resultpilar2 = parseFloat(this.Pilar2Tecnico.resultpilar2)  + (parseFloat(this.Pilar2Tecnico.estandaresnume)*0.17).toFixed(2);
               this.Pilar2Tecnico.estandaresnume = (parseFloat(this.Pilar2Tecnico.estandaresnume)*0.17).toFixed(2);
               if (this.Pilar2Tecnico.aplicacionesnume == 20) {
-                this.Pilar2Tecnico.aplicaciones = "El equipo tiene un conocimiento mínimo (Bajo) de las aplicaciones con que se interactúa en la célula.";
+                this.Pilar2Tecnico.aplicaciones = this.aplicaciones1;
               } else if (this.Pilar2Tecnico.aplicacionesnume == 40) {
-                this.Pilar2Tecnico.aplicaciones = "El equipo tiene un conocimiento Medio de las aplicaciones con que se interactúa en la célula.";
+                this.Pilar2Tecnico.aplicaciones = this.aplicaciones2;
               }else if (this.Pilar2Tecnico.aplicacionesnume == 60) {
-                this.Pilar2Tecnico.aplicaciones = "El equipo tiene un conocimiento Medio - Alto de las aplicaciones con que se interactúa en la célula. Conoce la aplicacion y su entorno pero requiere de acompañamiento para identificar o detectar impactos con componentes externos.";
+                this.Pilar2Tecnico.aplicaciones = this.aplicaciones3;
               }else if (this.Pilar2Tecnico.aplicacionesnume == 80) {
-                this.Pilar2Tecnico.aplicaciones = "El equipo tiene un Nivel Alto de las aplicaciones con que se interactúa en la célula. Reconoce y domina los componentes con que se relaciona su aplicacion; puede identificar facilmente un impacto en estos componentes.";
+                this.Pilar2Tecnico.aplicaciones = this.aplicaciones4;
               }else {
-                this.Pilar2Tecnico.aplicaciones = "El equipo tiene un Nivel Avanzado de las aplicaciones con que se interactúa en la célula. Conocimiento alto en lenguajes de Desarrollo.  El equipo propone y lidera modificaciones o analiza  impactos que se requieran de la aplicacion propia como de temas transversales. ";
+                this.Pilar2Tecnico.aplicaciones = this.aplicaciones5;
               }
             //  this.Pilar2Tecnico.resultpilar2 = parseFloat(this.Pilar2Tecnico.resultpilar2) + (parseFloat(this.Pilar2Tecnico.aplicacionesnume)*0.16).toFixed(2);
               
@@ -204,43 +278,43 @@ export class AppComponent {
             Pilar3() {
               console.log(this.Pilar3Procesos);
               if (this.Pilar3Procesos.proceso_hy_mnume == 25) {
-                this.Pilar3Procesos.proceso_hym = "El equipo requiere interiorizar el proceso de habilitar soluciones.";
+                this.Pilar3Procesos.proceso_hym = this.hymsoluciones1;
               } else if (this.Pilar3Procesos.proceso_hy_mnume == 50) {
-                this.Pilar3Procesos.proceso_hym = "El equipo desarrolla mayor experticia en la ejecución del proceso habilitar soluciones, realizando pasos a producción más Ágiles.";
+                this.Pilar3Procesos.proceso_hym = this.hymsoluciones2;
               }else if (this.Pilar3Procesos.proceso_hy_mnume == 75) {
-                this.Pilar3Procesos.proceso_hym = "Los equipos tienen una ruta clara  sobre los procesos, son impecables y dominan los procesos que intervienen en su dia a dia para el cumplimiento de los controles Sox.";
+                this.Pilar3Procesos.proceso_hym = this.hymsoluciones3;
               }else {
-                this.Pilar3Procesos.proceso_hym = "Se tienen implementadas prácticas de mejora en programación y adopción de nuevas tendencias para trabajar procesos y metodología de forma más eficiente.";
+                this.Pilar3Procesos.proceso_hym = this.hymsoluciones4;
               }
               this.Pilar3Procesos.proceso_hy_mnume = (parseFloat(this.Pilar3Procesos.proceso_hy_mnume)*0.25).toFixed(2);
               if (this.Pilar3Procesos.usd_usmnume == 25) {
-                this.Pilar3Procesos.usd_usm = "Tiene los accesos a las herramientas de USD y USM para buscar y gestionar ordenes de cambio.";
+                this.Pilar3Procesos.usd_usm = this.usd_usm1;
               } else if (this.Pilar3Procesos.usd_usmnume == 50) {
-                this.Pilar3Procesos.usd_usm = "El equipo incorpora skills de proactividad en la autogestión de OC y negocia de forma fluida con los responsables de los pedidos.";
+                this.Pilar3Procesos.usd_usm = this.usd_usm2;
               }else if (this.Pilar3Procesos.usd_usmnume == 75) {
-                this.Pilar3Procesos.usd_usm = "El equipo desarrolla mayor experticia en la gestión de pedidos USD y USM, realizando pasos a producción más Ágiles.";
+                this.Pilar3Procesos.usd_usm = this.usd_usm3;
               }else {
-                this.Pilar3Procesos.usd_usm = "El equipo es proactivo en la autogestión de OC y negocia de forma fluida con los responsables de los pedidos USD y USM para obtener la ejecución de las mismas.";
+                this.Pilar3Procesos.usd_usm = this.usd_usm4;
               }
               this.Pilar3Procesos.usd_usmnume = (parseFloat(this.Pilar3Procesos.usd_usmnume)*0.25).toFixed(2);
               if (this.Pilar3Procesos.practicasnume == 25) {
-                this.Pilar3Procesos.practicas = "El equipo carece de una planeación conjunta con otros equipos donde tienen dependencias y tareas criticas.";
+                this.Pilar3Procesos.practicas = this.mejores_precticas1;
               } else if (this.Pilar3Procesos.practicasnume == 50) {
-                this.Pilar3Procesos.practicas = "El equipo  trabaja con estándares y fomentan las buenas practicas de documentación de soluciones y procesos.";
+                this.Pilar3Procesos.practicas = this.mejores_precticas2;
               }else if (this.Pilar3Procesos.practicasnume == 75) {
-                this.Pilar3Procesos.practicas = "Las entregas a ambientes productivos son impecables y en tiempo corto.Las órdenes de cambio se planean y gestionan de forma adecuada para no generar impactos en las áreas ejecutoras.";
+                this.Pilar3Procesos.practicas = this.mejores_precticas3;
               }else {
-                this.Pilar3Procesos.practicas = "La colaboración, mejora continua, adaptación y entrega se exterioriza y los equipos empiezan a ser reconocidos por sus prácticas desde PMT y otros equipos.  Los equipos lideran espacios de formación para exponer mejores prácticas en la organización.";
+                this.Pilar3Procesos.practicas = this.mejores_precticas4;
               }
               this.Pilar3Procesos.practicasnume = (parseFloat(this.Pilar3Procesos.practicasnume)*0.25).toFixed(2);
               if (this.Pilar3Procesos.negocionume == 25) {
-                this.Pilar3Procesos.negocio = "Al equipo le interesa tener clara la trazabilidad del proceso de negocio que impacta con las soluciones desarrolladas desde su día a día.";
+                this.Pilar3Procesos.negocio = this.orienta_negocio1;
               } else if (this.Pilar3Procesos.negocionume == 50) {
-                this.Pilar3Procesos.negocio = "El equipo identifica y propone mejoras a las necesidades del negocio, para obtener soluciones más efectivas.";
+                this.Pilar3Procesos.negocio = this.orienta_negocio2;
               }else if (this.Pilar3Procesos.negocionume == 75) {
-                this.Pilar3Procesos.negocio = "Se tiene una visual más amplia de la solución en que se trabaja y se comienza a pensar mas allá del producto.";
+                this.Pilar3Procesos.negocio = this.orienta_negocio3;
               }else {
-                this.Pilar3Procesos.negocio = "El equipo tiene gran conocimiento del negocio y puede aportar en la identificación de nuevas entregas de valor o la evolución de las existentes.";
+                this.Pilar3Procesos.negocio = this.orienta_negocio4;
               }
               this.Pilar3Procesos.negocionume = (parseFloat(this.Pilar3Procesos.negocionume)*0.25).toFixed(2);
 
@@ -328,7 +402,7 @@ export class AppComponent {
               
             }
 
-            
+           
 
             informacion:any =
             {

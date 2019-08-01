@@ -27,6 +27,7 @@
             <div class="card" >
               <div class="card-header" *ngIf="!showPilar1"> <!--*ngIf="showPilar1"-->
                 Valoración Nivel de Madurez - Equipos Ágiles
+
               </div>
               <div class="card-header"  *ngIf="showPilar1 && !showPilar2"> <!--*ngIf="showPilar1 && showPilar2"-->
                   Valoración Nivel de Madurez - Pilar 1 - Comportamiento
@@ -115,18 +116,20 @@
                                     <input id="comportamiento1" type="radio" name="comportamientonum" value="1" [(ngModel)]=Pilar1Comportamiento.comportamientonum/>
                                      <label class="label drinkcard-cc comportamiento1" for="comportamiento1"></label>
                                   <div class="card-body">
-                                    <p class="card-text" style="font-size:80%;">• Generalmente los miembros del equipo se comportan de manera independiente, pueden ser motivados, pero en la mayoría de los casos están mal informados sobre temas y los objetivos del equipo. 
-                                      <br>
-                                        • Con frecuencia los miembros del equipo pueden exhibir muestras de incertidumbre y ansiedad.</p>
+                                    <p class="card-text" style="font-size:80%;">• El trabajo en el equipo se realiza de forma individual minimizando las interacciones entre sus miembros.<br>
+                                      • La personas se enfocan en ejecutar tareas sin conexión sin conexión con el logro de objetivos.<br>
+                                      • Ante la incertidumbre el equipo con frecuencia se muestra ansioso y le cuesta adaptarse a esta condición.<br>
+                                      • Se presenta un nivel alto de desconfianza entre los miembros del equipo.
+                                        </p>
                                   </div>
                                 </div>
                                 <div class="card">
                                     <input  id="comportamiento2" type="radio" name="comportamientonum" value="3"  [(ngModel)]=Pilar1Comportamiento.comportamientonum/>
                                     <label class="label drinkcard-cc comportamiento2" for="comportamiento2"></label>
                                   <div class="card-body">
-                                    <p class="card-text" style="font-size:80%;">• Generalmente los miembros del equipo muestran sus propias personalidades mientras enfrentan ideas y perspectivas de cada uno de los otros miembros. 
+                                    <p class="card-text" style="font-size:80%;">• Frecuentemente el equipo es capaz de negociar y llegar a acuerdos de forma natural y fluida. 
                                         <br>
-                                        • La frustración o los desacuerdos sobre metas, expectativas, papeles y responsabilidades se expresan abiertamente.
+                                        • Existe un armonía en el trabajo en el equipo, en sus interacciones y cumplimiento de responsabilidades.
                                         </p>
                                     </div> 
                                 </div>
@@ -148,11 +151,9 @@
                                     <input id="comportamiento4" type="radio" name="comportamientonum" value="5"  [(ngModel)]=Pilar1Comportamiento.comportamientonum/>
                                     <label class="label drinkcard-cc comportamiento4" for="comportamiento4"></label>
                                   <div class="card-body">
-                                    <p class="card-text" style="font-size:80%;">• Los miembros del equipo tienen una comprensión clara sobre lo que se requiere de ellos a nivel de tarea. Ellos son ahora competentes, autónomos y manejan la toma de decisiones sin necesidad de supervisión. 
+                                    <p class="card-text" style="font-size:80%;">• El equipo asume retos con coraje y entiende la conexión que tienen con los objetivos estratégicos. 
                                       <br>
-                                        • La actitud “Yo puedo hacerlo” es visible
-                                        <br>
-                                        • Se hacen ofertas para ayudar a otros.
+                                        • Colaboran de manera cotidiana buscando lograr resultados como equipo y no como individuos.
                                         </p>
                                   </div>
                                 </div>
@@ -184,30 +185,30 @@
                           <br>
                             <div class="card">
                               <div class="card-body">
-                                  <div class="custom-control custom-radio">
-                                      <input id="tecnico1" type="radio" class="custom-control-input" value="20" name="tecniconumeDevops" 
-                                      [(ngModel)]=Pilar2Tecnico.tecniconumeDevops data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="My popover content.">
-                                      <label class="custom-control-label" for="tecnico1"><p>El equipo implementa prácticas de DevOps sobre el pilar CM "Configuration Management".</p></label>
+                                  <div class="custom-control custom-radio"> 
+                                      <input id="tecnico1"  type="radio" class="custom-control-input" value="20" name="tecniconumeDevops" 
+                                      [(ngModel)]=Pilar2Tecnico.tecniconumeDevops>
+                                      <label class="custom-control-label" for="tecnico1"><p>{{devops1}}</p></label>
                                    </div>
                                    <div class="custom-control custom-radio">
                                       <input id="tecnico2" type="radio" class="custom-control-input" value="40" name="tecniconumeDevops" 
                                       [(ngModel)]=Pilar2Tecnico.tecniconumeDevops>
-                                      <label class="custom-control-label" for="tecnico2"><p>El equipo implementa prácticas de DevOps sobre el pilar CI.</p></label>
+                                      <label class="custom-control-label" for="tecnico2"><p>{{devops2}}</p></label>
                                    </div>
                                    <div class="custom-control custom-radio">
                                       <input id="tecnico3" type="radio" class="custom-control-input" value="60" name="tecniconumeDevops" 
                                       [(ngModel)]=Pilar2Tecnico.tecniconumeDevops>
-                                      <label class="custom-control-label" for="tecnico3"><p>El equipo despliega continuamente sus artefactos (Pipeline CD).</p></label>
+                                      <label class="custom-control-label" for="tecnico3"><p>{{devops3}}</p></label>
                                    </div>
                                    <div class="custom-control custom-radio">
                                       <input id="tecnico4" type="radio" class="custom-control-input" value="80" name="tecniconumeDevops" 
                                       [(ngModel)]=Pilar2Tecnico.tecniconumeDevops>
-                                      <label class="custom-control-label" for="tecnico4"><p>El equipo hace RM <b>(Release Management)</b> de pruebas independiente al pipeline del proyecto.</p></label>
+                                      <label class="custom-control-label" for="tecnico4"><p>{{devops4}}</p></label>
                                    </div>
                                    <div class="custom-control custom-radio">
                                       <input id="tecnico5" type="radio" class="custom-control-input" value="100" name="tecniconumeDevops" 
                                       [(ngModel)]=Pilar2Tecnico.tecniconumeDevops>
-                                      <label class="custom-control-label" for="tecnico5"><p>El equipo ejecuta pruebas automatizadas integradas al pipeline del proyecto.</p></label>
+                                      <label class="custom-control-label" for="tecnico5"><p>{{devops5}}</p></label>
                                    </div>
                               </div>
                             </div>
@@ -219,29 +220,27 @@
                                   <div class="custom-control custom-radio">
                                       <input id="arquitectura1" type="radio" class="custom-control-input" value="20" name="arquitectnumeDevops" 
                                       [(ngModel)]=Pilar2Tecnico.arquitectnumeDevops>
-                                      <label class="custom-control-label" for="arquitectura1"><p>El equipo tiene un conocimiento general de las capas de la arquitectura de la solución.</p></label>
+                                      <label class="custom-control-label" for="arquitectura1"><p>{{arquitect1}}</p></label>
                                    </div>
                                    <div class="custom-control custom-radio">
                                       <input id="arquitectura2" type="radio" class="custom-control-input" value="40" name="arquitectnumeDevops" 
                                       [(ngModel)]=Pilar2Tecnico.arquitectnumeDevops>
-                                      <label class="custom-control-label" for="arquitectura2"><p>El equipo integra lineamientos de arquitectura de la solución con los diseños y desarrollos.</p></label>
+                                      <label class="custom-control-label" for="arquitectura2"><p>{{arquitect2}}</p></label>
                                    </div>
                                    <div class="custom-control custom-radio">
                                       <input id="arquitectura3" type="radio" class="custom-control-input" value="60" name="arquitectnumeDevops" 
                                       [(ngModel)]=Pilar2Tecnico.arquitectnumeDevops>
-                                      <label class="custom-control-label" for="arquitectura3"><p>El equipo entiende y comprende los diseños de arquitectura de la solución. </p></label>
+                                      <label class="custom-control-label" for="arquitectura3"><p>{{arquitect3}} </p></label>
                                    </div>
                                    <div class="custom-control custom-radio">
                                       <input id="arquitectura4" type="radio" class="custom-control-input" value="80" name="arquitectnumeDevops" 
                                       [(ngModel)]=Pilar2Tecnico.arquitectnumeDevops>
-                                      <label class="custom-control-label" for="arquitectura4"><p>El equipo tiene un Nivel medio alto, conocimientos de arquitectura de la solución. <br>
-                                        El equipo desarrolla conocimiento en la arquitectura aplicativa del ecosistema.</p></label>
+                                      <label class="custom-control-label" for="arquitectura4"><p>{{arquitect4}}</p></label>
                                    </div>
                                    <div class="custom-control custom-radio">
                                       <input id="arquitectura5" type="radio" class="custom-control-input" value="100" name="arquitectnumeDevops" 
                                       [(ngModel)]=Pilar2Tecnico.arquitectnumeDevops>
-                                      <label class="custom-control-label" for="arquitectura5"><p>El equipo tiene un Nivel alto en conocimientos de arquitectura de la solución. <br>
-                                          El equipo tiene conocimiento alto en escalabilidad, mantenimiento de las aplicaciones.</p></label>
+                                      <label class="custom-control-label" for="arquitectura5"><p>{{arquitect5}}</p></label>
                                    </div>
                               </div>
                             </div>
@@ -253,24 +252,22 @@
                                   <div class="custom-control custom-radio">
                                       <input id="estandares1" type="radio" class="custom-control-input" value="25" name="estandaresnume" 
                                       [(ngModel)]=Pilar2Tecnico.estandaresnume>
-                                      <label class="custom-control-label" for="estandares1"><p>El equipo no maneja Estandar de trabajo con que interactúan en la célula.
-                                          <br>El equipo requiere constantes asesorías para la labor.</p></label>
+                                      <label class="custom-control-label" for="estandares1"><p>{{estandar1}}</p></label>
                                    </div>
                                    <div class="custom-control custom-radio">
                                       <input id="estandares2" type="radio" class="custom-control-input" value="50" name="estandaresnume" 
                                       [(ngModel)]=Pilar2Tecnico.estandaresnume>
-                                      <label class="custom-control-label" for="estandares2"><p>El equipo tiene un conocimiento Medio en los Estándares de trabajo con que interactúan en la célula.</p></label>
+                                      <label class="custom-control-label" for="estandares2"><p>{{estandar2}}</p></label>
                                    </div>
                                    <div class="custom-control custom-radio">
                                       <input id="estandares3" type="radio" class="custom-control-input" value="75" name="estandaresnume" 
                                       [(ngModel)]=Pilar2Tecnico.estandaresnume>
-                                      <label class="custom-control-label" for="estandares3"><p>El equipo tiene un conocimiento Alto en los Estándares de trabajo con que interactúan en la célula. 
-                                        <br>El equipo desarrolla la habilidad de solucionar problemas eficientemente, optimizando los recursos del marco de trabajo de su especialidad.</p></label>
+                                      <label class="custom-control-label" for="estandares3"><p>{{estandar3}}</p></label>
                                    </div>
                                    <div class="custom-control custom-radio">
                                       <input id="estandares4" type="radio" class="custom-control-input" value="100" name="estandaresnume" 
                                       [(ngModel)]=Pilar2Tecnico.estandaresnume>
-                                      <label class="custom-control-label" for="estandares4"><p>El equipo tiene conocimiento Avanzado - Alto en los Estádares de trabajo con que interactúan en la célula.</p></label>
+                                      <label class="custom-control-label" for="estandares4"><p>{{estandar4}}</p></label>
                                    </div>
                               </div>
                             </div>
@@ -282,31 +279,27 @@
                                   <div class="custom-control custom-radio">
                                       <input id="aplicaciones1" type="radio" class="custom-control-input" value="20" name="aplicacionesnume" 
                                       [(ngModel)]=Pilar2Tecnico.aplicacionesnume>
-                                      <label class="custom-control-label" for="aplicaciones1"><p>El equipo tiene un conocimiento mínimo (Bajo) de las aplicaciones con que se interactúa en la célula.</p></label>
+                                      <label class="custom-control-label" for="aplicaciones1"><p>{{aplicaciones1}}</p></label>
                                    </div>
                                    <div class="custom-control custom-radio">
                                       <input id="aplicaciones2" type="radio" class="custom-control-input" value="40" name="aplicacionesnume" 
                                       [(ngModel)]=Pilar2Tecnico.aplicacionesnume>
-                                      <label class="custom-control-label" for="aplicaciones2"><p>El equipo tiene un conocimiento Medio de las aplicaciones con que se interactúa en la célula.</p></label>
+                                      <label class="custom-control-label" for="aplicaciones2"><p>{{aplicaciones2}}</p></label>
                                    </div>
                                    <div class="custom-control custom-radio">
                                       <input id="aplicaciones3" type="radio" class="custom-control-input" value="60" name="aplicacionesnume" 
                                       [(ngModel)]=Pilar2Tecnico.aplicacionesnume>
-                                      <label class="custom-control-label" for="aplicaciones3"><p>El equipo tiene un conocimiento Medio - Alto de las aplicaciones con que se interactúa en la célula.  
-                                        <br>Conoce la aplicacion y su entorno pero requiere de acompañamiento para identificar o detectar impactos con componentes externos.</p></label>
+                                      <label class="custom-control-label" for="aplicaciones3"><p>{{aplicaciones3}}</p></label>
                                    </div>
                                    <div class="custom-control custom-radio">
                                       <input id="aplicaciones4" type="radio" class="custom-control-input" value="80" name="aplicacionesnume" 
                                       [(ngModel)]=Pilar2Tecnico.aplicacionesnume>
-                                      <label class="custom-control-label" for="aplicaciones4"><p>El equipo tiene un Nivel Alto de las aplicaciones con que se interactúa en la célula.
-                                        <br> Reconoce y domina los componentes con que se relaciona su aplicacion; puede identificar facilmente un impacto en estos componentes.</p></label>
+                                      <label class="custom-control-label" for="aplicaciones4"><p>{{aplicaciones4}}</p></label>
                                    </div>
                                    <div class="custom-control custom-radio">
                                       <input id="aplicaciones5" type="radio" class="custom-control-input" value="100" name="aplicacionesnume" 
                                       [(ngModel)]=Pilar2Tecnico.aplicacionesnume>
-                                      <label class="custom-control-label" for="aplicaciones5"><p>El equipo tiene un Nivel Avanzado de las aplicaciones con que se interactúa en la célula. 
-                                        <br>Conocimiento alto en lenguajes de Desarrollo.
-                                      <br> El equipo propone y lidera modificaciones o analiza  impactos que se requieran de la aplicacion propia como de temas transversales. </p></label>
+                                      <label class="custom-control-label" for="aplicaciones5"><p>{{aplicaciones5}}</p></label>
                                    </div>
                               </div>
                             </div>
@@ -342,22 +335,22 @@
                                       <div class="custom-control custom-radio">
                                           <input id="proceso1" type="radio" class="custom-control-input" value="25" name="proceso_hy_mnume" 
                                           [(ngModel)]=Pilar3Procesos.proceso_hy_mnume data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="My popover content.">
-                                          <label class="custom-control-label" for="proceso1"><p>El equipo requiere interiorizar el proceso de habilitar soluciones.</p></label>
+                                          <label class="custom-control-label" for="proceso1"><p>{{hymsoluciones1}}</p></label>
                                        </div>
                                        <div class="custom-control custom-radio">
                                           <input id="proceso2" type="radio" class="custom-control-input" value="50" name="proceso_hy_mnume" 
                                           [(ngModel)]=Pilar3Procesos.proceso_hy_mnume>
-                                          <label class="custom-control-label" for="proceso2"><p>El equipo desarrolla mayor experticia en la ejecución del proceso habilitar soluciones, realizando pasos a producción más Ágiles.</p></label>
+                                          <label class="custom-control-label" for="proceso2"><p>{{hymsoluciones2}}</p></label>
                                        </div>
                                        <div class="custom-control custom-radio">
                                           <input id="proceso3" type="radio" class="custom-control-input" value="75" name="proceso_hy_mnume" 
                                           [(ngModel)]=Pilar3Procesos.proceso_hy_mnume>
-                                          <label class="custom-control-label" for="proceso3"><p>Los equipos tienen una ruta clara  sobre los procesos, son impecables y dominan los procesos que intervienen en su dia a dia para el cumplimiento de los controles Sox.</p></label>
+                                          <label class="custom-control-label" for="proceso3"><p>{{hymsoluciones3}}</p></label>
                                        </div>
                                        <div class="custom-control custom-radio">
                                           <input id="proceso4" type="radio" class="custom-control-input" value="100" name="proceso_hy_mnume" 
                                           [(ngModel)]=Pilar3Procesos.proceso_hy_mnume>
-                                          <label class="custom-control-label" for="proceso4"><p>Se  tienen implementadas prácticas de mejora en programación y adopción de nuevas tendencias para trabajar procesos y metodología de forma más eficiente.</p></label>
+                                          <label class="custom-control-label" for="proceso4"><p>{{hymsoluciones4}}</p></label>
                                        </div>
                                   </div>
                                 </div>
@@ -369,22 +362,22 @@
                                       <div class="custom-control custom-radio">
                                           <input id="usd_usm1" type="radio" class="custom-control-input" value="25" name="usd_usmnume" 
                                           [(ngModel)]=Pilar3Procesos.usd_usmnume>
-                                          <label class="custom-control-label" for="usd_usm1"><p>Tiene los accesos a las herramientas de USD y USM para buscar y gestionar ordenes de cambio.</p></label>
+                                          <label class="custom-control-label" for="usd_usm1"><p>{{usd_usm1}}</p></label>
                                        </div>
                                        <div class="custom-control custom-radio">
                                           <input id="usd_usm2" type="radio" class="custom-control-input" value="50" name="usd_usmnume" 
                                           [(ngModel)]=Pilar3Procesos.usd_usmnume>
-                                          <label class="custom-control-label" for="usd_usm2"><p>El equipo incorpora skills de proactividad en la autogestión de OC y negocia de forma fluida con los responsables de los pedidos.</p></label>
+                                          <label class="custom-control-label" for="usd_usm2"><p>{{usd_usm2}}</p></label>
                                        </div>
                                        <div class="custom-control custom-radio">
                                           <input id="usd_usm3" type="radio" class="custom-control-input" value="75" name="usd_usmnume" 
                                           [(ngModel)]=Pilar3Procesos.usd_usmnume>
-                                          <label class="custom-control-label" for="usd_usm3"><p>El equipo desarrolla mayor experticia en la gestión de pedidos USD y USM, realizando pasos a producción más Ágiles.</p></label>
+                                          <label class="custom-control-label" for="usd_usm3"><p>{{usd_usm3}}</p></label>
                                        </div>
                                        <div class="custom-control custom-radio">
                                           <input id="usd_usm4" type="radio" class="custom-control-input" value="100" name="usd_usmnume" 
                                           [(ngModel)]=Pilar3Procesos.usd_usmnume>
-                                          <label class="custom-control-label" for="usd_usm4"><p>El equipo es proactivo en la autogestión de OC y negocia de forma fluida con los responsables de los pedidos USD y USM para obtener la ejecución de las mismas.</p></label>
+                                          <label class="custom-control-label" for="usd_usm4"><p>{{usd_usm4}}</p></label>
                                        </div>
                                   </div>
                                 </div>
@@ -396,22 +389,22 @@
                                       <div class="custom-control custom-radio">
                                           <input id="practicas1" type="radio" class="custom-control-input" value="25" name="practicasnume" 
                                           [(ngModel)]=Pilar3Procesos.practicasnume>
-                                          <label class="custom-control-label" for="practicas1"><p>El equipo carece de una planeación conjunta con otros equipos donde tienen dependencias y tareas criticas.</p></label>
+                                          <label class="custom-control-label" for="practicas1"><p>{{mejores_precticas1}}</p></label>
                                        </div>
                                        <div class="custom-control custom-radio">
                                           <input id="practicas2" type="radio" class="custom-control-input" value="50" name="practicasnume" 
                                           [(ngModel)]=Pilar3Procesos.practicasnume>
-                                          <label class="custom-control-label" for="practicas2"><p>El equipo  trabaja con estándares y fomentan las buenas practicas de documentación de soluciones y procesos.</p></label>
+                                          <label class="custom-control-label" for="practicas2"><p>{{mejores_precticas2}}</p></label>
                                        </div>
                                        <div class="custom-control custom-radio">
                                           <input id="practicas3" type="radio" class="custom-control-input" value="75" name="practicasnume" 
                                           [(ngModel)]=Pilar3Procesos.practicasnume>
-                                          <label class="custom-control-label" for="practicas3"><p>Las entregas a ambientes productivos son impecables y en tiempo corto.Las órdenes de cambio se planean y gestionan de forma adecuada para no generar impactos en las áreas ejecutoras.</p></label>
+                                          <label class="custom-control-label" for="practicas3"><p>{{mejores_precticas3}}</p></label>
                                        </div>
                                        <div class="custom-control custom-radio">
                                           <input id="practicas4" type="radio" class="custom-control-input" value="100" name="practicasnume" 
                                           [(ngModel)]=Pilar3Procesos.practicasnume>
-                                          <label class="custom-control-label" for="practicas4"><p>La colaboración, mejora continua, adaptación y entrega se exterioriza y los equipos empiezan a ser reconocidos por sus prácticas desde PMT y otros equipos.  Los equipos lideran espacios de formación para exponer mejores prácticas en la organización.</p></label>
+                                          <label class="custom-control-label" for="practicas4"><p>{{mejores_precticas4}}</p></label>
                                        </div>
                                   </div>
                                 </div>
@@ -423,22 +416,22 @@
                                       <div class="custom-control custom-radio">
                                           <input id="negocio1" type="radio" class="custom-control-input" value="25" name="negocionume" 
                                           [(ngModel)]=Pilar3Procesos.negocionume>
-                                          <label class="custom-control-label" for="negocio1"><p>Al equipo le interesa tener clara la trazabilidad del proceso de negocio que impacta con las soluciones desarrolladas desde su día a día.</p></label>
+                                          <label class="custom-control-label" for="negocio1"><p>{{orienta_negocio1}}</p></label>
                                        </div>
                                        <div class="custom-control custom-radio">
                                           <input id="negocio2" type="radio" class="custom-control-input" value="50" name="negocionume" 
                                           [(ngModel)]=Pilar3Procesos.negocionume>
-                                          <label class="custom-control-label" for="negocio2"><p>El equipo identifica y propone mejoras a las necesidades del negocio, para obtener soluciones más efectivas.</p></label>
+                                          <label class="custom-control-label" for="negocio2"><p>{{orienta_negocio2}}</p></label>
                                        </div>
                                        <div class="custom-control custom-radio">
                                           <input id="negocio3" type="radio" class="custom-control-input" value="75" name="negocionume" 
                                           [(ngModel)]=Pilar3Procesos.negocionume>
-                                          <label class="custom-control-label" for="negocio3"><p>Se tiene una visual más amplia de la solución en que se trabaja y se comienza a pensar mas allá del producto.</p></label>
+                                          <label class="custom-control-label" for="negocio3"><p>{{orienta_negocio3}}</p></label>
                                        </div>
                                        <div class="custom-control custom-radio">
                                           <input id="negocio4" type="radio" class="custom-control-input" value="100" name="negocionume" 
                                           [(ngModel)]=Pilar3Procesos.negocionume>
-                                          <label class="custom-control-label" for="negocio4"><p>El equipo tiene gran conocimiento del negocio y puede aportar en la identificación de nuevas entregas de valor o la evolución de las existentes. </p></label>
+                                          <label class="custom-control-label" for="negocio4"><p>{{orienta_negocio4}}</p></label>
                                        </div>
                                   </div>
                                 </div>
@@ -456,8 +449,7 @@
                                      <label class="label drinkagil-cc agilismo1" for="agilismo1"></label>
                                   <div class="card-body">
                                     <p class="card-text" style="font-size:80%;"><b>El equipo:</b><br>
-                                      • Conoce los conceptos básicos del marco de trabajo, pero no entiende el propósito.<br>
-                                      • Necesita indicaciones precisas de un líder/jefe para ejecutar tareas. <br></p>
+                                      • Desconoce los conceptos básicos del marco de trabajo.<br></p>
                                   </div>
                                 </div>
                                 <div class="card">
@@ -491,7 +483,7 @@
                                   <div class="card-body">
                                     <p class="card-text" style="font-size:80%;">• El nivel de madurez Ejecutor ya está adoptado totalmente por todos los integrantes del equipo.<br>
                                         • Equipo inspirador.<br>
-                                        • Movilizador del cambio en la organización.<br>
+                                        • El equipo es referente y lleva nuevas prácticas al entorno organizacional.<br>
                                         • Promotor de la agilidad con otros equipos.<br>
                                         • La auto-organización es natural al interior del equipo.<br>
                                         • El equipo impacta positivamente a todo el ecosistema con el que interactúan.</p>
@@ -518,25 +510,25 @@
                               Líder de componente: <span class="badge badge-light">XXXXXXXXXXXXXXXXX</span>
                           </button>&nbsp;&nbsp;-->
                       <button type="button" class="btn btn-info">
-                        Nivel de madurez: <span class="badge badge-light">{{madurez}}</span>
+                        Nivel de madurez anterior: <span class="badge badge-light">{{madurez}}</span>
                       </button>
                     </div>
                     <div class="col-md-2">
                       <div class="container text-right">
                           <button type="button" class="btn btn-primary" *ngIf="!showPilar1" (click)="Informacion()"> <!--*ngIf="!showPilar1"-->
-                              SiguienteP1
+                              Siguiente
                           </button>
                           <button type="button" class="btn btn-primary" *ngIf="showPilar1 && !showPilar2 && Pilar1Comportamiento.comportamientonum" (click)="Pilar1()"><!--*ngIf="showPilar1 && !showPilar2"-->
-                            SiguienteP2                    
+                            Siguiente                 
                           </button>
                           <button type="button" class="btn btn-primary" *ngIf="showPilar2 && !showPilar3 && Pilar2Tecnico.tecniconumeDevops && Pilar2Tecnico.arquitectnumeDevops && Pilar2Tecnico.estandaresnume && Pilar2Tecnico.aplicacionesnume" (click)="Pilar2()">
-                              SiguienteP3
+                              Siguiente
                           </button>
                           <button type="button" class="btn btn-primary" *ngIf="showPilar3 && !showPilar4 && Pilar3Procesos.proceso_hy_mnume && Pilar3Procesos.usd_usmnume && Pilar3Procesos.practicasnume && Pilar3Procesos.negocionume" (click)="Pilar3()">
-                              SiguienteP4
+                              Siguiente
                           </button>
                           <button type="button" class="btn btn-primary" *ngIf="showPilar4 && !showFinalizar" (click)="Pilar4()">
-                              SiguienteFinaliza
+                              Siguiente
                           </button>
                       </div>
                     </div>
@@ -546,7 +538,7 @@
             </form>
           </div>
 </div>
-  <div class="col-md-4">
+  <div class="col-md-4" >
     <img src="/assets/Images/NivelesEquipos.JPG" width="350" height="350">
   </div>
 </div>
@@ -562,7 +554,9 @@
       </div>
       <div class="modal-body">
           <div class="container row">
-                <h5><p class="bg-primary text-center">Resultado valoración: {{resultadovaloracion}}</p></h5>
+              <button type="button" class="btn btn-info">
+                  Nivel de madurez: <span class="badge badge-light">{{resultadovaloracion}}</span>
+                </button>
           </div>
           <div class="container row">
               <div class="col-md-6">
@@ -680,4 +674,3 @@
      
     </div>
   </div>
-
