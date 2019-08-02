@@ -267,7 +267,8 @@ export class AppComponent {
             }else if(this.Pilar2Tecnico.resultpilar2 > 60 && this.Pilar2Tecnico.resultpilar2 <= 80){
               this.Pilar2Tecnico.resultpilar2 = 4
               this.resultpilar2 = "Ejecutor"
-            }else  this.resultpilar2 = "Ágil"
+            }else this.Pilar2Tecnico.resultpilar2 = 5
+                  this.resultpilar2 = "Ágil"
               this.Pilar2Tecnico.celula = this.selectioncelulas
              this.EquiposService.guardarPilar2(this.Pilar2Tecnico).subscribe((data) => 
                   {  })
@@ -333,7 +334,8 @@ export class AppComponent {
             }else if(this.Pilar3Procesos.resultpilar3 > 60 && this.Pilar3Procesos.resultpilar3 <= 80){
               this.Pilar3Procesos.resultpilar3 = 4
               this.resultpilar3 = "Ejecutor"
-            }else this.resultpilar3 = "Ágil"
+            }else this.Pilar3Procesos.resultpilar3 = 5 
+              this.resultpilar3 = "Ágil"
               this.Pilar3Procesos.celula = this.selectioncelulas
               this.EquiposService.guardarPilar3(this.Pilar3Procesos).subscribe((data) => 
                    {  })
@@ -346,10 +348,10 @@ export class AppComponent {
               if (this.Pilar4Agilismo.agilismonum == 1) {
                 this.resultpilar4 = "Novato"
                 this.Pilar4Agilismo.agilismo = "El equipo: Conoce los conceptos básicos del marco de trabajo, pero no entiende el propósito.* Necesita indicaciones precisas de un líder/jefe para ejecutar tareas. ";
-              } else if (this.Pilar4Agilismo.agilismonum == 2) {
+              } else if (this.Pilar4Agilismo.agilismonum == 3) {
                 this.resultpilar4 = "Técnico"
                 this.Pilar4Agilismo.agilismo = "El equipo:* Ejecuta las ceremonias de forma adecuada y autónoma.* Adquiere y cumplen los compromisos.* Nivel de auto-organización medio. Aun requieren de instrucciones y acompañamiento para el logro de objetivos.";
-              }else if (this.Pilar4Agilismo.agilismonum == 3) {
+              }else if (this.Pilar4Agilismo.agilismonum == 4) {
                 this.resultpilar4 = "Ejecutor"
                 this.Pilar4Agilismo.agilismo = "El equipo: * Tiene claro el propósito de cada ceremonia. * Están orientado a la generación de valor para la organización. * El equipo es auto-organizado y orientado al logro. * Fácil adaptación al cambio ( ingreso de nuevas historias, entre otros).";
               }else {

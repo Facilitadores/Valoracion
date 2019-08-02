@@ -353,7 +353,8 @@ var AppComponent = /** @class */ (function () {
             this.resultpilar2 = "Ejecutor";
         }
         else
-            this.resultpilar2 = "Ágil";
+            this.Pilar2Tecnico.resultpilar2 = 5;
+        this.resultpilar2 = "Ágil";
         this.Pilar2Tecnico.celula = this.selectioncelulas;
         this.EquiposService.guardarPilar2(this.Pilar2Tecnico).subscribe(function (data) { });
         this.showPilar3 = true;
@@ -431,7 +432,8 @@ var AppComponent = /** @class */ (function () {
             this.resultpilar3 = "Ejecutor";
         }
         else
-            this.resultpilar3 = "Ágil";
+            this.Pilar3Procesos.resultpilar3 = 5;
+        this.resultpilar3 = "Ágil";
         this.Pilar3Procesos.celula = this.selectioncelulas;
         this.EquiposService.guardarPilar3(this.Pilar3Procesos).subscribe(function (data) { });
         this.showPilar4 = true;
@@ -442,11 +444,11 @@ var AppComponent = /** @class */ (function () {
             this.resultpilar4 = "Novato";
             this.Pilar4Agilismo.agilismo = "El equipo: Conoce los conceptos básicos del marco de trabajo, pero no entiende el propósito.* Necesita indicaciones precisas de un líder/jefe para ejecutar tareas. ";
         }
-        else if (this.Pilar4Agilismo.agilismonum == 2) {
+        else if (this.Pilar4Agilismo.agilismonum == 3) {
             this.resultpilar4 = "Técnico";
             this.Pilar4Agilismo.agilismo = "El equipo:* Ejecuta las ceremonias de forma adecuada y autónoma.* Adquiere y cumplen los compromisos.* Nivel de auto-organización medio. Aun requieren de instrucciones y acompañamiento para el logro de objetivos.";
         }
-        else if (this.Pilar4Agilismo.agilismonum == 3) {
+        else if (this.Pilar4Agilismo.agilismonum == 4) {
             this.resultpilar4 = "Ejecutor";
             this.Pilar4Agilismo.agilismo = "El equipo: * Tiene claro el propósito de cada ceremonia. * Están orientado a la generación de valor para la organización. * El equipo es auto-organizado y orientado al logro. * Fácil adaptación al cambio ( ingreso de nuevas historias, entre otros).";
         }
