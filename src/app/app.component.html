@@ -232,7 +232,7 @@
                                       [(ngModel)]=Pilar2Tecnico.arquitectnumeDevops>
                                       <label class="custom-control-label" for="arquitectura3"><p>{{arquitect3}} </p></label>
                                    </div>
-                                   <div class="custom-control custom-radio">
+                                   <div class="custom-control custom-radio">  
                                       <input id="arquitectura4" type="radio" class="custom-control-input" value="80" name="arquitectnumeDevops" 
                                       [(ngModel)]=Pilar2Tecnico.arquitectnumeDevops>
                                       <label class="custom-control-label" for="arquitectura4"><p>{{arquitect4}}</p></label>
@@ -530,6 +530,7 @@
                           <button type="button" class="btn btn-primary" *ngIf="showPilar4 && !showFinalizar" (click)="Pilar4()">
                               Siguiente
                           </button>
+                          <button type="button" class="btn btn-danger" *ngIf="showFinalizar" onClick="window.location.reload();">Finalizar</button>
                       </div>
                     </div>
                   </div>
@@ -591,23 +592,23 @@
               <div class="col-md-6">
                   <div class="card bg-link">
                       <div class="card-header">
-                        Pilar Técnico: {{resultpilar2}}
+                        Pilar Técnico: {{resultFinalpilar2}}
                       </div>
                   <div class="card-body">
                       <div class="row">
-                            <div class="card-body" *ngIf="resultpilar2==='Novato'">
+                            <div class="card-body" *ngIf="resultFinalpilar2==='Novato'">
                                   <img src="/assets/Images/novato.PNG" width="280" height="170">
                               </div>
-                              <div class="card-body" *ngIf="resultpilar2==='Gestionador'">
+                              <div class="card-body" *ngIf="resultFinalpilar2==='Gestionador'">
                                   <img src="/assets/Images/gestionador.PNG" width="280" height="170">
                               </div>
-                              <div class="card-body" *ngIf="resultpilar2==='Técnico'">
+                              <div class="card-body" *ngIf="resultFinalpilar2==='Técnico'">
                                   <img src="/assets/Images/Técnico.PNG" width="280" height="170">
                               </div>
-                              <div class="card-body" *ngIf="resultpilar2==='Ejecutor'">
+                              <div class="card-body" *ngIf="resultFinalpilar2==='Ejecutor'">
                                   <img src="/assets/Images/Ejecutor.PNG" width="280" height="170">
                               </div>
-                              <div class="card-body" *ngIf="resultpilar2==='Ágil'">
+                              <div class="card-body" *ngIf="resultFinalpilar2==='Ágil'">
                                   <img src="/assets/Images/Ágil.PNG" width="280" height="170">
                               </div>
                       </div>
@@ -620,23 +621,23 @@
             <div class="col-md-6">
                 <div class="card bg-link">
                     <div class="card-header">
-                      Pilar Negocio y Porceso: {{resultpilar3}}
+                      Pilar Negocio y Proceso: {{resultFinalpilar3}}
                     </div>
                 <div class="card-body">
                     <div class="row">
-                          <div class="card-body" *ngIf="resultpilar3==='Novato'">
+                          <div class="card-body" *ngIf="resultFinalpilar3==='Novato'">
                                 <img src="/assets/Images/novato.PNG" width="280" height="170">
                             </div>
-                            <div class="card-body" *ngIf="resultpilar3==='Gestionador'">
+                            <div class="card-body" *ngIf="resultFinalpilar3==='Gestionador'">
                                 <img src="/assets/Images/gestionador.PNG" width="280" height="170">
                             </div>
-                            <div class="card-body" *ngIf="resultpilar3==='Técnico'">
+                            <div class="card-body" *ngIf="resultFinalpilar3==='Técnico'">
                                 <img src="/assets/Images/Técnico.PNG" width="280" height="170">
                             </div>
-                            <div class="card-body" *ngIf="resultpilar3==='Ejecutor'">
+                            <div class="card-body" *ngIf="resultFinalpilar3==='Ejecutor'">
                                 <img src="/assets/Images/Ejecutor.PNG" width="280" height="170">
                             </div>
-                            <div class="card-body" *ngIf="resultpilar3==='Ágil'">
+                            <div class="card-body" *ngIf="resultFinalpilar3==='Ágil'">
                                 <img src="/assets/Images/Ágil.PNG" width="280" height="170">
                             </div>
                     </div>

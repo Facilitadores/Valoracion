@@ -171,8 +171,8 @@ export class AppComponent {
 
             resultpilar1: string = null;
             resultpilar4: string = null;
-            resultpilar2: string = null;
-            resultpilar3: string = null;
+            resultFinalpilar2: string = null;
+            resultFinalpilar3: string = null;
             resultadoFinal: string = null;
             resultadovaloracion: string = null;
             min: number = null;
@@ -188,7 +188,7 @@ export class AppComponent {
               }else if (this.Pilar1Comportamiento.comportamientonum == 4) {
                 this.resultpilar1 = "Ejecutor"
                 this.Pilar1Comportamiento.comportamiento = "*Frecuentemente los miembros del equipo ajustan su comportamiento el uno al del otro mientras que desarrollan acuerdos de hacer el trabajo de forma más natural y fluida. *Generalmente los miembros del equipo hacen esfuerzo consciente de resolver los problemas y de lograr armonía en el grupo. Los niveles de motivación han aumentado.";
-              }else {
+              }else if (this.Pilar1Comportamiento.comportamientonum == 5) {
                 this.resultpilar1 = "Ágil"
                 this.Pilar1Comportamiento.comportamiento = "*Los miembros del equipo tienen una comprensión clara sobre lo que se requiere de ellos a nivel de tarea. Ellos son ahora competentes, autónomos y manejan la toma de decisiones sin necesidad de supervisión. *La actitud 'Yo puedo hacerlo' es visible. *Se hacen ofertas para ayudar a otros.";
               }
@@ -255,25 +255,26 @@ export class AppComponent {
               this.Pilar2Tecnico.resultpilar2 = (parseFloat(this.Pilar2Tecnico.aplicacionesnume) + parseFloat(this.Pilar2Tecnico.estandaresnume) + parseFloat(this.Pilar2Tecnico.arquitectnumeDevops) + parseFloat(this.Pilar2Tecnico.tecniconumeDevops));
               
       
-            if (this.Pilar2Tecnico.resultpilar2 <= 20) {
+            if (this.Pilar2Tecnico.resultpilar2 <= 25) {
                 this.Pilar2Tecnico.resultpilar2 = 1
-                this.resultpilar2 = "Novato"
-            } else if(this.Pilar2Tecnico.resultpilar2 > 20 && this.Pilar2Tecnico.resultpilar2 <= 40){
+                this.resultFinalpilar2 = "Novato"
+            } else if(this.Pilar2Tecnico.resultpilar2 > 25 && this.Pilar2Tecnico.resultpilar2 <= 40){
               this.Pilar2Tecnico.resultpilar2 = 2
-              this.resultpilar2 = "Gestionador"
+              this.resultFinalpilar2 = "Gestionador"
             }else if(this.Pilar2Tecnico.resultpilar2 > 40 && this.Pilar2Tecnico.resultpilar2 <= 60){
               this.Pilar2Tecnico.resultpilar2 = 3
-              this.resultpilar2 = "Técnico"
+              this.resultFinalpilar2 = "Técnico"
             }else if(this.Pilar2Tecnico.resultpilar2 > 60 && this.Pilar2Tecnico.resultpilar2 <= 80){
               this.Pilar2Tecnico.resultpilar2 = 4
-              this.resultpilar2 = "Ejecutor"
-            }else this.Pilar2Tecnico.resultpilar2 = 5
-                  this.resultpilar2 = "Ágil"
+              this.resultFinalpilar2 = "Ejecutor"
+            }else if (this.Pilar2Tecnico.resultpilar2 > 80){
+                  this.Pilar2Tecnico.resultpilar2 = 5
+                  this.resultFinalpilar2 = "Ágil"
+            }     
               this.Pilar2Tecnico.celula = this.selectioncelulas
              this.EquiposService.guardarPilar2(this.Pilar2Tecnico).subscribe((data) => 
                   {  })
               this.showPilar3=true;
-              
             }
 
             Pilar3() {
@@ -321,26 +322,27 @@ export class AppComponent {
 
               this.Pilar3Procesos.resultpilar3 = (parseFloat(this.Pilar3Procesos.negocionume) + parseFloat(this.Pilar3Procesos.practicasnume) + parseFloat(this.Pilar3Procesos.usd_usmnume) + parseFloat(this.Pilar3Procesos.proceso_hy_mnume));
               
-              console.log(this.Pilar3Procesos)
-            if (this.Pilar3Procesos.resultpilar3 <= 20) {
+           if (this.Pilar3Procesos.resultpilar3 <= 25) {
                 this.Pilar3Procesos.resultpilar3 = 1
-                this.resultpilar3 = "Novato"
-            } else if(this.Pilar3Procesos.resultpilar3 > 20 && this.Pilar3Procesos.resultpilar3 <= 40){
+                this.resultFinalpilar3 = "Novato"
+            } else if(this.Pilar3Procesos.resultpilar3 > 25 && this.Pilar3Procesos.resultpilar3 <= 40){
               this.Pilar3Procesos.resultpilar3 = 2
-              this.resultpilar3 = "Gestionador"
+              this.resultFinalpilar3 = "Gestionador"
             }else if(this.Pilar3Procesos.resultpilar3 > 40 && this.Pilar3Procesos.resultpilar3 <= 60){
               this.Pilar3Procesos.resultpilar3 = 3
-              this.resultpilar3 = "Técnico"
+              this.resultFinalpilar3 = "Técnico"
             }else if(this.Pilar3Procesos.resultpilar3 > 60 && this.Pilar3Procesos.resultpilar3 <= 80){
               this.Pilar3Procesos.resultpilar3 = 4
-              this.resultpilar3 = "Ejecutor"
-            }else this.Pilar3Procesos.resultpilar3 = 5 
-              this.resultpilar3 = "Ágil"
+              this.resultFinalpilar3 = "Ejecutor"
+            }else if(this.Pilar3Procesos.resultpilar3 > 80){
+              this.Pilar3Procesos.resultpilar3 = 5 
+              this.resultFinalpilar3 = "Ágil"
+          }
               this.Pilar3Procesos.celula = this.selectioncelulas
-              this.EquiposService.guardarPilar3(this.Pilar3Procesos).subscribe((data) => 
+            this.EquiposService.guardarPilar3(this.Pilar3Procesos).subscribe((data) => 
                    {  })
               this.showPilar4=true;
-              
+
             }
 
             Pilar4() {
@@ -354,7 +356,7 @@ export class AppComponent {
               }else if (this.Pilar4Agilismo.agilismonum == 4) {
                 this.resultpilar4 = "Ejecutor"
                 this.Pilar4Agilismo.agilismo = "El equipo: * Tiene claro el propósito de cada ceremonia. * Están orientado a la generación de valor para la organización. * El equipo es auto-organizado y orientado al logro. * Fácil adaptación al cambio ( ingreso de nuevas historias, entre otros).";
-              }else {
+              }else if (this.Pilar4Agilismo.agilismonum == 5)  {
                 this.resultpilar4 = "Ágil"
                 this.Pilar4Agilismo.agilismo = "* El nivel de madurez Ejecutor ya está adoptado totalmente por todos los integrantes del equipo. * Equipo inspirador. * Movilizador del cambio en la organización. *Promotor de la agilidad con otros equipos. * La auto-organización es natural al interior del equipo. * El equipo impacta positivamente a todo el ecosistema con el que interactúan.";
               }
@@ -395,8 +397,8 @@ export class AppComponent {
 
                         console.log(this.min); 
                         console.log(this.resultpilar1);
-                        console.log(this.resultpilar2);
-                        console.log(this.resultpilar3);
+                        console.log(this.resultFinalpilar2);
+                        console.log(this.resultFinalpilar3);
                         console.log(this.resultpilar4);
                         console.log(this.resultadovaloracion);
                    });
