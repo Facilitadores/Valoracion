@@ -316,7 +316,7 @@
                               <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Habilitar y Mantener Soluciones  </a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#usd_usm" role="tab" aria-controls="usd_usm" aria-selected="false">Gestión USD_USM</a>
+                              <a class="nav-link" id="profile-tab" *ngIf="tipo_celula !=='CERT'" data-toggle="tab" href="#usd_usm" role="tab" aria-controls="usd_usm" aria-selected="false">Gestión USD_USM</a>
                             </li>
                             <li class="nav-item">
                               <a class="nav-link" id="contact-tab" data-toggle="tab" href="#practicas" role="tab" aria-controls="practicas" aria-selected="false">Mejores Prácticas y Entregas</a>
@@ -524,8 +524,8 @@
                           <button type="button" class="btn btn-primary" *ngIf="showPilar2 && !showPilar3 && Pilar2Tecnico.tecniconumeDevops && Pilar2Tecnico.arquitectnumeDevops && Pilar2Tecnico.estandaresnume && Pilar2Tecnico.aplicacionesnume" (click)="Pilar2()">
                               Siguiente
                           </button>
-                          <button type="button" class="btn btn-primary" *ngIf="showPilar3 && !showPilar4 && Pilar3Procesos.proceso_hy_mnume && Pilar3Procesos.usd_usmnume && Pilar3Procesos.practicasnume && Pilar3Procesos.negocionume" (click)="Pilar3()">
-                              Siguiente
+                          <button type="button" class="btn btn-primary" *ngIf="showPilar3 && !showPilar4 && Pilar3Procesos.proceso_hy_mnume && (tipo_celula ==='CERT' || Pilar3Procesos.usd_usmnume) && Pilar3Procesos.practicasnume && Pilar3Procesos.negocionume" (click)="Pilar3()">
+                              Siguiente                                                                                                         
                           </button>
                           <button type="button" class="btn btn-primary" *ngIf="showPilar4 && !showFinalizar" (click)="Pilar4()">
                               Siguiente

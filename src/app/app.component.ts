@@ -288,17 +288,21 @@ export class AppComponent {
               }else {
                 this.Pilar3Procesos.proceso_hym = this.hymsoluciones4;
               }
-              this.Pilar3Procesos.proceso_hy_mnume = (parseFloat(this.Pilar3Procesos.proceso_hy_mnume)*0.25).toFixed(2);
-              if (this.Pilar3Procesos.usd_usmnume == 25) {
-                this.Pilar3Procesos.usd_usm = this.usd_usm1;
-              } else if (this.Pilar3Procesos.usd_usmnume == 50) {
-                this.Pilar3Procesos.usd_usm = this.usd_usm2;
-              }else if (this.Pilar3Procesos.usd_usmnume == 75) {
-                this.Pilar3Procesos.usd_usm = this.usd_usm3;
-              }else {
-                this.Pilar3Procesos.usd_usm = this.usd_usm4;
-              }
-              this.Pilar3Procesos.usd_usmnume = (parseFloat(this.Pilar3Procesos.usd_usmnume)*0.25).toFixed(2);
+                 
+                  if (this.tipo_celula == "CERT"){
+                        this.Pilar3Procesos.usd_usmnume = 0;
+                        this.Pilar3Procesos.usd_usm = "No Aplica para Certificación" 
+                  }else{
+                      if (this.Pilar3Procesos.usd_usmnume == 25) {
+                        this.Pilar3Procesos.usd_usm = this.usd_usm1;
+                      } else if (this.Pilar3Procesos.usd_usmnume == 50) {
+                        this.Pilar3Procesos.usd_usm = this.usd_usm2;
+                      }else if (this.Pilar3Procesos.usd_usmnume == 75) {
+                        this.Pilar3Procesos.usd_usm = this.usd_usm3;
+                      }else {
+                        this.Pilar3Procesos.usd_usm = this.usd_usm4;
+                      }
+                  }
               if (this.Pilar3Procesos.practicasnume == 25) {
                 this.Pilar3Procesos.practicas = this.mejores_precticas1;
               } else if (this.Pilar3Procesos.practicasnume == 50) {
@@ -308,7 +312,7 @@ export class AppComponent {
               }else {
                 this.Pilar3Procesos.practicas = this.mejores_precticas4;
               }
-              this.Pilar3Procesos.practicasnume = (parseFloat(this.Pilar3Procesos.practicasnume)*0.25).toFixed(2);
+             
               if (this.Pilar3Procesos.negocionume == 25) {
                 this.Pilar3Procesos.negocio = this.orienta_negocio1;
               } else if (this.Pilar3Procesos.negocionume == 50) {
@@ -318,7 +322,17 @@ export class AppComponent {
               }else {
                 this.Pilar3Procesos.negocio = this.orienta_negocio4;
               }
-              this.Pilar3Procesos.negocionume = (parseFloat(this.Pilar3Procesos.negocionume)*0.25).toFixed(2);
+              if (this.tipo_celula == "CERT"){
+                this.Pilar3Procesos.practicasnume = (parseFloat(this.Pilar3Procesos.practicasnume)*0.333).toFixed(2);
+                this.Pilar3Procesos.usd_usmnume = 0
+                this.Pilar3Procesos.negocionume = (parseFloat(this.Pilar3Procesos.negocionume)*0.333).toFixed(2);
+                this.Pilar3Procesos.proceso_hy_mnume = (parseFloat(this.Pilar3Procesos.proceso_hy_mnume)*0.333).toFixed(2);
+              }else{
+                this.Pilar3Procesos.practicasnume = (parseFloat(this.Pilar3Procesos.practicasnume)*0.25).toFixed(2);
+                this.Pilar3Procesos.usd_usmnume = (parseFloat(this.Pilar3Procesos.usd_usmnume)*0.25).toFixed(2);
+                this.Pilar3Procesos.negocionume = (parseFloat(this.Pilar3Procesos.negocionume)*0.25).toFixed(2);
+                this.Pilar3Procesos.proceso_hy_mnume = (parseFloat(this.Pilar3Procesos.proceso_hy_mnume)*0.25).toFixed(2);
+              }
 
               this.Pilar3Procesos.resultpilar3 = (parseFloat(this.Pilar3Procesos.negocionume) + parseFloat(this.Pilar3Procesos.practicasnume) + parseFloat(this.Pilar3Procesos.usd_usmnume) + parseFloat(this.Pilar3Procesos.proceso_hy_mnume));
               
@@ -341,7 +355,7 @@ export class AppComponent {
               this.Pilar3Procesos.celula = this.selectioncelulas
             this.EquiposService.guardarPilar3(this.Pilar3Procesos).subscribe((data) => 
                    {  })
-              this.showPilar4=true;
+             this.showPilar4=true;
 
             }
 
