@@ -57,6 +57,10 @@ resultadofinal(celula: string): Observable<any> {
     return this.http.post(`${this.url}/guardarPilar4`, data);
     //alert("User created successfully.");
   }
+  updateMadurez(data: any) {
+    return this.http.post(`${this.url}/guardarMadurez`, data);
+    //alert("User created successfully.");
+  }  
 }
 
 

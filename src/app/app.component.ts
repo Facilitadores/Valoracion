@@ -168,6 +168,7 @@ export class AppComponent {
             Pilar2Tecnico:any ={} 
             Pilar3Procesos:any ={} 
             Pilar4Agilismo:any ={}
+            Madurez:any ={}
 
             resultpilar1: string = null;
             resultpilar4: string = null;
@@ -415,13 +416,16 @@ export class AppComponent {
                         console.log(this.resultFinalpilar3);
                         console.log(this.resultpilar4);
                         console.log(this.resultadovaloracion);
-                   });
 
-              
+                        this.Madurez.nueva_madurez = this.resultadovaloracion;
+                        this.Madurez.nueva_madureznum = this.min;
+                        this.Madurez.celula=this.selectioncelulas;
+
+                        this.EquiposService.updateMadurez(this.Madurez).subscribe((data) => 
+                        {  }) 
+                      }
+                   );
             }
-
-           
-
             informacion:any =
             {
               celula:null, facilitador:null,madurez: null, nuevamadurez: null, tipovaloracion:null, madurezNum:null

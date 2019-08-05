@@ -155,6 +155,7 @@ var AppComponent = /** @class */ (function () {
         this.Pilar2Tecnico = {};
         this.Pilar3Procesos = {};
         this.Pilar4Agilismo = {};
+        this.Madurez = {};
         this.resultpilar1 = null;
         this.resultpilar4 = null;
         this.resultFinalpilar2 = null;
@@ -507,6 +508,10 @@ var AppComponent = /** @class */ (function () {
             console.log(_this.resultFinalpilar3);
             console.log(_this.resultpilar4);
             console.log(_this.resultadovaloracion);
+            _this.Madurez.nueva_madurez = _this.resultadovaloracion;
+            _this.Madurez.nueva_madureznum = _this.min;
+            _this.Madurez.celula = _this.selectioncelulas;
+            _this.EquiposService.updateMadurez(_this.Madurez).subscribe(function (data) { });
         });
     };
     AppComponent.prototype.ngOnInit = function () {
@@ -682,6 +687,10 @@ var EquiposService = /** @class */ (function () {
     };
     EquiposService.prototype.guardarPilar4 = function (data) {
         return this.http.post(this.url + "/guardarPilar4", data);
+        //alert("User created successfully.");
+    };
+    EquiposService.prototype.updateMadurez = function (data) {
+        return this.http.post(this.url + "/guardarMadurez", data);
         //alert("User created successfully.");
     };
     EquiposService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
