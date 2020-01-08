@@ -1,0 +1,108 @@
+#container {
+    padding: 15px;
+}
+
+.popover{
+    width:200px;
+    height:250px;
+    
+}
+
+.cc-selector input{
+    margin:0;padding:0;
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+}
+
+.cc-selectoragil input{
+    margin:0;padding:0;
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+}
+
+.comportamiento1{
+    background-image:url("/assets/Images/Comportamiento1.PNG");
+ }
+.comportamiento2{
+    background-image:url("/assets/Images/compoirtamiento2.PNG")
+}
+.comportamiento3{
+    background-image:url("/assets/Images/comportamiento3.PNG");
+ }
+.comportamiento4{
+    background-image:url("/assets/Images/comportamiento4.PNG")
+}
+
+.agilismo1{
+    background-image:url("/assets/Images/agil1.PNG");
+ }
+.agilismo2{
+    background-image:url("/assets/Images/agil2.PNG")
+}
+.agilismo3{
+    background-image:url("/assets/Images/agil3.PNG");
+ }
+.agilismo4{
+    background-image:url("/assets/Images/agil4.PNG")
+}
+
+
+.cc-selector-2 input:active +.drinkcard-cc, .cc-selector input:active +.drinkcard-cc{opacity: .9;}
+.cc-selector-2 input:checked +.drinkcard-cc, .cc-selector input:checked +.drinkcard-cc{
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+}
+
+.cc-selectoragil-2 input:active +.drinkagil-cc, .cc-selectoragil input:active +.drinkagil-cc{opacity: .9;}
+.cc-selectoragil-2 input:checked +.drinkagil-cc, .cc-selectoragil input:checked +.drinkagil-cc{
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+}
+
+.drinkcard-cc{
+    cursor:pointer;
+    background-size:200px 200px;
+    background-repeat:no-repeat;
+    display:inline-block;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:10em;height:12em;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: brightness(1) grayscale(.9) opacity(.7);
+       -moz-filter: brightness(1) grayscale(.9) opacity(.7);
+            filter: brightness(1) grayscale(.9) opacity(.7);
+}
+.drinkcard-cc:hover{
+    -webkit-filter: brightness(1) grayscale(.9) opacity(.7);
+       -moz-filter: brightness(1) grayscale(.9) opacity(.7);
+            filter: brightness(1) grayscale(.9) opacity(.7);
+}
+
+.drinkagil-cc{
+    cursor:pointer;
+    background-size:200px 200px;
+    background-repeat:no-repeat;
+    display:inline-block;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:10em;height:12em;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: brightness(1) grayscale(.9) opacity(.7);
+       -moz-filter: brightness(1) grayscale(.9) opacity(.7);
+            filter: brightness(1) grayscale(.9) opacity(.7);
+}
+.drinkagil-cc:hover{
+    -webkit-filter: brightness(1) grayscale(.9) opacity(.7);
+       -moz-filter: brightness(1) grayscale(.9) opacity(.7);
+            filter: brightness(1) grayscale(.9) opacity(.7);
+}

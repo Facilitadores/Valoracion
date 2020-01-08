@@ -1,0 +1,1499 @@
+
+<br>
+<div class="row">
+  <div class="col-sm-2">
+    <br>
+    <br>
+    <br>
+    <img src="/assets/Images/pensamientoAgil.png" width="250" height="400">
+  </div>
+  <div class="col-sm-8">
+    <div class="row">
+      <div class="col-sm-1">
+      </div>
+      <div class="col-sm-3">
+        <div class="input-group mb-4">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Usuario</span>
+          </div>
+          <input type="text" class="form-control" placeholder="Usuario" id="usuario" name="usuario"
+            [(ngModel)]=respuesta1.usuario>
+      </div>
+      </div>
+      <div class="col-sm-3" *ngIf="respuesta1.usuario">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend" >
+            <label class="input-group-text" for="inputGroupSelect01" *ngIf="!facilitador">Célula</label>
+          </div>
+          <!--<select class="custom-select" id="inputGroupSelect01">
+            <option *ngFor="let celula of celulas">{{ celula.celula }} </option>
+          </select>-->
+          <select [(ngModel)]="selectioncelulas"  name="selectioncelula" (change)="selectioncelula()" *ngIf="!facilitador">
+            <option *ngFor="let celula of celulas">{{celula.celula}}</option>
+          </select>
+          <button type="button" class="btn btn-light" *ngIf="facilitador">
+            Célula: <span class="badge badge-light">{{selectioncelulas}}</span>
+          </button>
+        </div>
+      </div>
+      <div class="col-sm-5" *ngIf="selectioncelulas">
+        <!--Este lo carga si encuentra la célula seleccionada-->
+        <button type="button" class="btn btn-light">
+          Facilitador: <span class="badge badge-light">{{facilitador}}</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="tab-content " *ngIf="showGeneral">
+        <div class="card text-center">
+            <div class="card-header">
+                Diagnóstico para Facilitadores equipos ágiles
+            </div>
+           <div class="col-md-8 offset-md-2">
+              <div class="card-body">
+              </div>
+            <div class="card bg-link">
+                <div class="card-header">
+                  Diagnóstico Finalizado!!
+               <!--    El Diagnóstico  es: {{valoracionGeneral}} -->
+                </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 offset-md-5">
+                        <div class="card-body">
+                            <img src="/assets/Images/OK.jpg" width="100" height="100">
+                        </div>
+                      <!--  <div class="card-body" *ngIf="valoracionGeneral==='Novato'">
+                            <img src="/assets/Images/novato.png" width="100" height="100">
+                        </div>
+                        <div class="card-body" *ngIf="valoracionGeneral==='Competente'">
+                            <img src="/assets/Images/competente.png" width="100" height="100">
+                        </div>
+                        <div class="card-body" *ngIf="valoracionGeneral==='Experto'">
+                            <img src="/assets/Images/experto.png" width="100" height="100">
+                        </div>
+                        <div class="card-body" *ngIf="valoracionGeneral==='Maestro'">
+                            <img src="/assets/Images/maestro.png" width="100" height="100">
+                        </div>-->
+                    </div>
+                </div>
+               <!--  <div class="card-footer">
+                  El promedio del Diagnóstico  es: {{respuestageneral.promedio_general}}
+                </div>-->
+            </div> 
+          </div>
+          <div class="card-body">
+            </div>
+          </div>
+        </div>  
+    </div>
+    <div class="tab-content" *ngIf="selectioncelulas && respuesta1.usuario && !showGeneral">
+      <div id="home" class="container tab-pane active">
+        <div class="card text-center">
+          <div class="card-header">
+              Diagnóstico para Facilitadores equipos ágiles
+          </div>
+          <form (ngSubmit)="guardaGeneral(respuestasgeneral)" #respuestasgeneral="ngForm">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-4">
+                  <a href="#" class="btn btn-default btn-sm" data-toggle="modal" data-target="#Pilar1" *ngIf="!showR1">
+                    <div class="card-body">
+                      <img src="/assets/Images/Mainset1.JPG" width="200" height="150" class="btn btn-link btn-sm"
+                        data-toggle="modal" data-target="#Pilar1">
+                    </div>
+                  </a>
+                  <div *ngIf="showR1">
+                  <div class="card-header">
+                      Diagnóstico : {{valoracion1}}
+                  </div>
+                  <div class="card-body" *ngIf="valoracion1==='Novato'">
+                      <img src="/assets/Images/novato.png" width="100" height="100">
+                  </div>
+                  <div class="card-body" *ngIf="valoracion1==='Competente'">
+                      <img src="/assets/Images/competente.png" width="100" height="100">
+                  </div>
+                  <div class="card-body" *ngIf="valoracion1==='Experto'">
+                      <img src="/assets/Images/experto.png" width="100" height="100">
+                  </div>
+                  <div class="card-body" *ngIf="valoracion1==='Maestro'">
+                      <img src="/assets/Images/maestro.png" width="100" height="100">
+                  </div>
+                  <div class="card-footer">
+                      Promedio: {{respuesta1.promedioP1}}
+                  </div>
+                </div>
+                </div>
+                <div class="col-sm-4">
+                <div *ngIf="!showR1">
+                  <a href="#" class="btn btn-default btn-sm disabled" data-toggle="modal" data-target="#Pilar2" >
+                    <div class="card-body">
+                      <img src="/assets/Images/Mainset2.JPG" width="200" height="150" class="btn btn-link btn-sm"
+                        data-toggle="modal" data-target="#Pilar2">
+                    </div>
+                  </a>
+                </div>
+                  <div *ngIf="showR1">
+                    <a href="#" class="btn btn-default btn-sm" data-toggle="modal" data-target="#Pilar2" *ngIf="!showR2">
+                      <div class="card-body">
+                        <img src="/assets/Images/Mainset2.JPG" width="200" height="150" class="btn btn-link btn-sm"
+                          data-toggle="modal" data-target="#Pilar2">
+                      </div>
+                    </a>
+                  </div>
+                  <div *ngIf="showR2">
+                      <div class="card-header">
+                          Diagnóstico : {{valoracion2}}
+                      </div>
+                      <div class="card-body" *ngIf="valoracion2==='Novato'">
+                          <img src="/assets/Images/novato.png" width="100" height="100">
+                      </div>
+                      <div class="card-body" *ngIf="valoracion2==='Competente'">
+                          <img src="/assets/Images/competente.png" width="100" height="100">
+                      </div>
+                      <div class="card-body" *ngIf="valoracion2==='Experto'">
+                          <img src="/assets/Images/experto.png" width="100" height="100">
+                      </div>
+                      <div class="card-body" *ngIf="valoracion2==='Maestro'">
+                          <img src="/assets/Images/maestro.png" width="100" height="100">
+                      </div>
+                      <div class="card-footer">
+                          Promedio: {{respuesta2.promedioP2}}
+                      </div>
+                  </div>
+                </div>
+                <div class="col-sm-4" >
+                    <div *ngIf="!showR2">
+                        <a href="#" class="btn btn-default btn-sm disabled" data-toggle="modal" data-target="#Pilar3">
+                          <div class="card-body">
+                            <img src="/assets/Images/Mainset3.JPG" width="200" height="150" class="btn btn-link btn-sm"
+                              data-toggle="modal" data-target="#Pilar3">
+                          </div>
+                        </a>
+                          </div>
+                    <div *ngIf="showR2">
+                  <a href="#" class="btn btn-default btn-sm " data-toggle="modal" data-target="#Pilar3" *ngIf="!showR3">
+                    <div class="card-body">
+                      <img src="/assets/Images/Mainset3.JPG" width="200" height="150" class="btn btn-link btn-sm"
+                        data-toggle="modal" data-target="#Pilar3">
+                    </div>
+                  </a>
+                    </div>
+                    <div *ngIf="showR3">
+                        <div class="card-header">
+                            Diagnóstico : {{valoracion3}}
+                        </div>
+                        <div class="card-body" *ngIf="valoracion3==='Novato'">
+                            <img src="/assets/Images/novato.png" width="100" height="100">
+                        </div>
+                        <div class="card-body" *ngIf="valoracion3==='Competente'">
+                            <img src="/assets/Images/competente.png" width="100" height="100">
+                        </div>
+                        <div class="card-body" *ngIf="valoracion3==='Experto'">
+                            <img src="/assets/Images/experto.png" width="100" height="100">
+                        </div>
+                        <div class="card-body" *ngIf="valoracion3==='Maestro'">
+                            <img src="/assets/Images/maestro.png" width="100" height="100">
+                        </div>
+                        <div class="card-footer">
+                            Promedio: {{respuesta3.promedioP3}}
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-sm-4">
+                    <div *ngIf="!showR3">
+                        <a href="#" class="btn btn-default btn-sm disabled" data-toggle="modal" data-target="#Pilar4">
+                          <div class="card-body">
+                            <img src="/assets/Images/Mainset4.JPG" width="200" height="150" class="btn btn-link btn-sm"
+                              data-toggle="modal" data-target="#Pilar4">
+                          </div>
+                        </a>
+                          </div>
+                    <div *ngIf="showR3">
+                  <a href="#" class="btn btn-default btn-sm" data-toggle="modal" data-target="#Pilar4" *ngIf="!showR4">
+                    <div class="card-body">
+                      <img src="/assets/Images/Mainset4.JPG" width="200" height="150" class="btn btn-link btn-sm"
+                        data-toggle="modal" data-target="#Pilar4">
+                    </div>
+                  </a>
+                    </div>
+                    <div *ngIf="showR4">
+                        <div class="card-header">
+                            Diagnóstico : {{valoracion4}}
+                        </div>
+                        <div class="card-body" *ngIf="valoracion4==='Novato'">
+                            <img src="/assets/Images/novato.png" width="100" height="100">
+                        </div>
+                        <div class="card-body" *ngIf="valoracion4==='Competente'">
+                            <img src="/assets/Images/competente.png" width="100" height="100">
+                        </div>
+                        <div class="card-body" *ngIf="valoracion4==='Experto'">
+                            <img src="/assets/Images/experto.png" width="100" height="100">
+                        </div>
+                        <div class="card-body" *ngIf="valoracion4==='Maestro'">
+                            <img src="/assets/Images/maestro.png" width="100" height="100">
+                        </div>
+                        <div class="card-footer">
+                            Promedio: {{respuesta4.promedioP4}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                      <div *ngIf="!showR4">
+                          <a href="#" class="btn btn-default btn-sm disabled" data-toggle="modal" data-target="#Pilar5">
+                            <div class="card-body">
+                              <img src="/assets/Images/Mainset5.JPG" width="200" height="150" class="btn btn-link btn-sm"
+                                data-toggle="modal" data-target="#Pilar5">
+                            </div>
+                          </a>
+                            </div>
+                      <div *ngIf="showR4">
+                    <a href="#" class="btn btn-default btn-sm" data-toggle="modal" data-target="#Pilar5"
+                      *ngIf="!showR5">
+                      <div class="card-body">
+                        <img src="/assets/Images/Mainset5.JPG" width="200" height="150" class="btn btn-link btn-sm"
+                          data-toggle="modal" data-target="#Pilar5">
+                      </div>
+                    </a>
+                      </div>
+                      <div *ngIf="showR5">
+                          <div class="card-header">
+                              Diagnóstico : {{valoracion5}}
+                          </div>
+                          <div class="card-body" *ngIf="valoracion5==='Novato'">
+                              <img src="/assets/Images/novato.png" width="100" height="100">
+                          </div>
+                          <div class="card-body" *ngIf="valoracion5==='Competente'">
+                              <img src="/assets/Images/competente.png" width="100" height="100">
+                          </div>
+                          <div class="card-body" *ngIf="valoracion5==='Experto'">
+                              <img src="/assets/Images/experto.png" width="100" height="100">
+                          </div>
+                          <div class="card-body" *ngIf="valoracion5==='Maestro'">
+                              <img src="/assets/Images/maestro.png" width="100" height="100">
+                          </div>
+                          <div class="card-footer">
+                              Promedio: {{respuesta5.promedioP5}}
+                          </div>
+                      </div>
+                  </div>
+                <div class="col-sm-4">
+                    <div *ngIf="!showR5">
+                        <a href="#" class="btn btn-default btn-sm disabled" data-toggle="modal" data-target="#Pilar6">
+                          <div class="card-body">
+                            <img src="/assets/Images/Mainset6.JPG" width="200" height="150" class="btn btn-link btn-sm"
+                              data-toggle="modal" data-target="#Pilar6">
+                          </div>
+                        </a>
+                          </div>
+                    <div *ngIf="showR5">
+                  <a href="#" class="btn btn-default btn-sm" data-toggle="modal" data-target="#Pilar6" *ngIf="!showR6 ">
+                    <div class="card-body">
+                      <img src="/assets/Images/Mainset6.JPG" width="200" height="150" class="btn btn-link btn-sm"
+                        data-toggle="modal" data-target="#Pilar6">
+                    </div>
+                  </a>
+                    </div>
+                    <div *ngIf="showR6">
+                        <div class="card-header">
+                            Diagnóstico : {{valoracion6}}
+                        </div>
+                        <div class="card-body" *ngIf="valoracion6==='Novato'">
+                            <img src="/assets/Images/novato.png" width="100" height="100">
+                        </div>
+                        <div class="card-body" *ngIf="valoracion6==='Competente'">
+                            <img src="/assets/Images/competente.png" width="100" height="100">
+                        </div>
+                        <div class="card-body" *ngIf="valoracion6==='Experto'">
+                            <img src="/assets/Images/experto.png" width="100" height="100">
+                        </div>
+                        <div class="card-body" *ngIf="valoracion6==='Maestro'">
+                            <img src="/assets/Images/maestro.png" width="100" height="100">
+                        </div>
+                        <div class="card-footer">
+                            Promedio: {{respuesta6.promedioP6}}
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <div class="card-header">
+                      <label for="Fortalezas">Escriba las fortalezas que considera que tiene su facilitador.</label>
+                      <textarea class="form-control" id="fortalezas" name="fortalezas"
+                        [(ngModel)]=respuestageneral.fortalezas rows="3">
+               </textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <div class="card-header">
+                      <label for="Oportunidades">Escribe las oportunidades de mejora que identificas en el facilitador
+                        de tú
+                        equipo.</label>
+                      <textarea class="form-control" id="oportunidades" name="oportunidades"
+                        [(ngModel)]=respuestageneral.oportunidades rows="3">
+                 </textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <button type="submit" class="btn btn-primary" *ngIf="showR6">Guardar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- <div id="menu1" class="container tab-pane fade">
+        <div class="card text-center">
+          <div class="card-header">
+            Diagnóstico por equipos y PO para Facilitadores equipos ágiles
+          </div>
+          <div class="card-body body">
+            <div class="row">
+              <div class="col-sm-4">
+                <a href="#" class="btn btn-default btn-sm" data-toggle="modal" data-target="#Pilar1">
+                  <div class="card-body">
+                    <img src="/assets/Images/Mainset1.JPG" width="200" height="150" class="btn btn-link btn-sm"
+                      data-toggle="modal" data-target="#Pilar1">
+                  </div>
+                </a>
+              </div>
+              <div class="col-sm-4">
+                <a href="#" class="btn btn-default btn-sm" data-toggle="modal" data-target="#Pilar2">
+                  <div class="card-body">
+                    <img src="/assets/Images/Mainset2.JPG" width="200" height="150" class="btn btn-link btn-sm"
+                      data-toggle="modal" data-target="#Pilar2">
+                  </div>
+                </a>
+              </div>
+              <div class="col-sm-4">
+                <a href="#" class="btn btn-default btn-sm" data-toggle="modal" data-target="#Pilar3">
+                  <div class="card-body">
+                    <img src="/assets/Images/Mainset3.JPG" width="200" height="150" class="btn btn-link btn-sm"
+                      data-toggle="modal" data-target="#Pilar3">
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <a href="#" class="btn btn-default btn-sm" data-toggle="modal" data-target="#Pilar4">
+                  <div class="card-body">
+                    <img src="/assets/Images/Mainset4.JPG" width="200" height="150" class="btn btn-link btn-sm"
+                      data-toggle="modal" data-target="#Pilar4">
+                  </div>
+                </a>
+              </div>
+              <div class="col-sm-4">
+                <div class="col-sm-4">
+                  <a href="#" class="btn btn-default btn-sm" data-toggle="modal" data-target="#Pilar5">
+                    <div class="card-body">
+                      <img src="/assets/Images/Mainset5.JPG" width="200" height="150" class="btn btn-link btn-sm"
+                        data-toggle="modal" data-target="#Pilar5">
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <a href="#" class="btn btn-default btn-sm" data-toggle="modal" data-target="#Pilar6">
+                  <div class="card-body">
+                    <img src="/assets/Images/Mainset6.JPG" width="200" height="150" class="btn btn-link btn-sm"
+                      data-toggle="modal" data-target="#Pilar6">
+                  </div>
+                </a>
+              </div>
+            </div>
+            <br>
+          </div>
+          <form (ngSubmit)="guardarGeneral(respuestageneral)" #respuestageneral="ngForm">
+          <div class="card-footer">
+              <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <div class="card-header">
+                        <label for="fortalezas">Escriba las fortalezas que considera que tiene su facilitador.</label>
+                        <textarea class="form-control" id="fortalezas" name="fortalezas" 
+                        [(ngModel)]=respuestageneral.fortalezas rows="3">
+                   </textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <div class="card-header">
+                        <label for="oportunidades">Escribe las oportunidades de mejora que identificas en el facilitador
+                          de tú
+                          equipo.</label>
+                        <textarea class="form-control" id="oportunidades" name="oportunidades" 
+                            [(ngModel)]=respuestageneral.oportunidades rows="3">
+                       </textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Save
+                </button>
+          </div>
+        </form>
+        </div>
+      </div>--> 
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <img src="/assets/Images/VSTI.png" width="250" height="330">
+  </div>
+</div>
+      <br>
+      <!--Modal Pilar 1-->
+      <form (ngSubmit)="guardarP1(respuestasP1)" #respuestasP1="ngForm">
+        <div class="modal fade" id="Pilar1" tabindex="-1" role="dialog" aria-labelledby="Pilar1" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">Talento empoderado que colabora y aprende</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <p class="card-text"><small>¿Con qué frecuencia el facilitador promueve la auto-organización
+                            (significa
+                            que el equipo determina lo que puede hacer y cómo lo puede hacer con la participación de
+                            todos sus
+                            integrantes)?</small></p>
+                        <div class="dropdown show">
+                          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           <!--  {{ respuesta1.pre1Pi1 ? respuesta1.pre1Pi1 : "Respuesta"}}-->Respuestas
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre1Pi1" id="Pre1Pi1Nunca" value="1"
+                                checked [(ngModel)]=respuesta1.pre1Pi1 >
+                              <label class="form-check-label" for="Pre1Pi1Nunca">
+                                Nunca
+                              </label>
+                            </div>
+                            <div class="form-check">
+                             <input class="form-check-input" type="radio" name="pre1Pi1" id="Pre1Pi1Ocasionalmente"
+                                value="2"  [(ngModel)]=respuesta1.pre1Pi1>
+                              <label class="form-check-label" for="Pre1Pi1Ocasionalmente">
+                                Ocasionalmente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre1Pi1" id="Pre1Pi1Frecuentemente"
+                                value="3"  [(ngModel)]=respuesta1.pre1Pi1>
+                              <label class="form-check-label" for="Pre1Pi1Frecuentemente">
+                                Frecuentemente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre1Pi1" id="Pre1Pi1Siempre" value="4"
+                               [(ngModel)]=respuesta1.pre1Pi1>
+                              <label class="form-check-label" for="Pre1Pi1Siempre">
+                                Siempre
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <p class="card-text"><small>Cuando existen diferencias de opinión entre los miembros del equipo,
+                            ¿Con
+                            qué frecuencia el facilitador las identifica y las aborda?</small></p>
+                        <div class="dropdown show">
+                          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <!--    {{ respuesta1.pre2Pi1 ? respuesta1.pre2Pi1 : "Respuesta"}}-->Respuestas
+                          </a>
+
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="respuesta1.pre2Pi1" id="Pre2Pi1Nunca"
+                                value="1" checked [(ngModel)]=respuesta1.pre2Pi1>
+                              <label class="form-check-label" for="Pre2Pi1Nunca">
+                                Nunca
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="respuesta1.pre2Pi1"
+                                id="Pre2Pi1Ocasionalmente" value="2" [(ngModel)]=respuesta1.pre2Pi1>
+                              <label class="form-check-label" for="Pre2Pi1Ocasionalmente">
+                                Ocasionalmente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="respuesta1.pre2Pi1"
+                                id="Pre2Pi1Freccuentemente" value="3" [(ngModel)]=respuesta1.pre2Pi1>
+                              <label class="form-check-label" for="Pre2Pi1Freccuentemente">
+                                Frecuentemente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="respuesta1.pre2Pi1" id="Pre2Pi1Siempre"
+                                value="4" [(ngModel)]=respuesta1.pre2Pi1>
+                              <label class="form-check-label" for="Pre2Pi1Siempre">
+                                Siempre
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <p class="card-text"><small>¿Con qué frecuencia el facilitador reta al equipo a experimentar,
+                            aprender,
+                            y compartir sus resultados con la organización (círculos, comunidades, open space, talleres
+                            de
+                            mejora continua, entre otros)?</small></p>
+
+                        <div class="dropdown show">
+                          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Respuestas
+                            <!--{{ respuesta1.pre3Pi1 ? respuesta1.pre3Pi1 : "Respuesta"}}-->
+                    
+                          </a>
+
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre3Pi1" id="Pre3Pi1Nunca" value="1"
+                                checked [(ngModel)]=respuesta1.pre3Pi1>
+                              <label class="form-check-label" for="Pre3Pi1Nunca">
+                                Nunca
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre3Pi1" id="Pre3Pi1Ocasionalmente"
+                                value="2" [(ngModel)]=respuesta1.pre3Pi1>
+                              <label class="form-check-label" for="Pre3Pi1Ocasionalmente">
+                                Ocasionalmente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre3Pi1" id="Pre3PiFrecuentemente"
+                                value="3" [(ngModel)]=respuesta1.pre3Pi1>
+                              <label class="form-check-label" for="Pre3PiFrecuentemente">
+                                Frecuentemente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre3Pi1" id="Pre3PiSiempre" value="4"
+                                [(ngModel)]=respuesta1.pre3Pi1>
+                              <label class="form-check-label" for="Pre3PiSiempre">
+                                Siempre
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-sm-2">
+                  </div>
+                  <div class="col-sm-8">
+                    <div class="form-group">
+                      <div class="card-header">
+                        <label for="observaP1">Observaciones: </label>
+                        <textarea class="form-control" id="observaP1" name="observaP1" [(ngModel)]=respuesta1.observaP1
+                          rows="2" cols="300"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" (click)="guardarP1()" data-dismiss="modal" class="btn btn-primary">Guardar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <!--Fin Modal Pilar 1-->
+      <!--Modal Pilar 2-->
+      <form (ngSubmit)="guardarP2(respuestasP2)" #respuestasP2="ngForm">
+        <div class="modal fade" id="Pilar2" tabindex="-1" role="dialog" aria-labelledby="Pilar2" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">Generación de valor frecuente y sostenible</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <p class="card-text"><small>¿Con qué frecuencia el facilitador se empodera de la remoción de
+                            impedimentos que el equipo no pueda resolver y así generar un ritmo de trabajo constante y
+                            sostenible?</small></p>
+                        <div class="dropdown show">
+                          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Respuestas
+                          </a>
+
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre1Pi2" id="Pre1Pi2Nunca" value="1"
+                                checked [(ngModel)]=respuesta2.pre1Pi2>
+                              <label class="form-check-label" for="Nunca">
+                                Nunca
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre1Pi2" id="Pre1Pi2Ocasionalmente"
+                                value="2" [(ngModel)]=respuesta2.pre1Pi2>
+                              <label class="form-check-label" for="Ocasionalmente">
+                                Ocasionalmente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre1Pi2" id="Pre1Pi2Frecuentemente"
+                                value="3" [(ngModel)]=respuesta2.pre1Pi2>
+                              <label class="form-check-label" for="Frecuentemente">
+                                Frecuentemente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre1Pi2" id="Pre1Pi2Siempre" value="4"
+                                [(ngModel)]=respuesta2.pre1Pi2>
+                              <label class="form-check-label" for="Siempre">
+                                Siempre
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <p class="card-text"><small>¿Con qué frecuencia el facilitador ayuda al equipo en el planning a
+                            definir
+                            los objetivos del sprint para que sean SMART (Especifico, medible, Alcanzable, relevante y a
+                            tiempo)
+                            y facilita el cumplimiento de los mismos?</small></p>
+                        <div class="dropdown show">
+                          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Respuestas
+                          </a>
+
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre2Pi2" id="Pre2Pi2Nunca" value="1"
+                                checked [(ngModel)]=respuesta2.pre2Pi2>
+                              <label class="form-check-label" for="Nunca">
+                                Nunca
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre2Pi2" id="Pre2Pi2Ocasionalmente"
+                                value="2" [(ngModel)]=respuesta2.pre2Pi2>
+                              <label class="form-check-label" for="Ocasionalmente">
+                                Ocasionalmente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre2Pi2" id="Pre2Pi2Frecuentemente"
+                                value="3" [(ngModel)]=respuesta2.pre2Pi2>
+                              <label class="form-check-label" for="Frecuentemente">
+                                Frecuentemente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre2Pi2" id="Pre2Pi2Siempre" value="4"
+                                [(ngModel)]=respuesta2.pre2Pi2>
+                              <label class="form-check-label" for="Siempre">
+                                Siempre
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <p class="card-text"><small>¿Con qué frecuencia el facilitador orienta al equipo y al PO a
+                            través de
+                            prácticas y herramientas que permitan tener entregas de valor más frecuentes?</small></p>
+
+                        <div class="dropdown show">
+                          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Respuestas
+                          </a>
+
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre3Pi2" id="Pre3Pi2Nunca" value="1"
+                                checked [(ngModel)]=respuesta2.pre3Pi2>
+                              <label class="form-check-label" for="Nunca">
+                                Nunca
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre3Pi2" id="Pre3Pi2Ocasionalmente"
+                                value="2" [(ngModel)]=respuesta2.pre3Pi2>
+                              <label class="form-check-label" for="Ocasionalmente">
+                                Ocasionalmente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre3Pi2" id="Pre3Pi2Frecuentemente"
+                                value="3" [(ngModel)]=respuesta2.pre3Pi2>
+                              <label class="form-check-label" for="Frecuentemente">
+                                Frecuentemente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre3Pi2" id="Pre3Pi2Siempre" value="4"
+                                [(ngModel)]=respuesta2.pre3Pi2>
+                              <label class="form-check-label" for="Siempre">
+                                Siempre
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-sm-2">
+                  </div>
+                  <div class="col-sm-8">
+                    <div class="form-group">
+                      <div class="card-header">
+                        <label for="P2Observa">Observaciones: </label>
+                        <textarea class="form-control" id="P2Observa" name="observaP2" [(ngModel)]=respuesta2.observaP2
+                          rows="2" cols="300"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" (click)="guardarP2()" data-dismiss="modal" class="btn btn-primary">Guardar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <!--Fin Modal Pilar 2-->
+      <!--Modal Pilar 3-->
+      <form (ngSubmit)="guardarP3(respuestasP3)" #respuestasP3="ngForm">
+        <div class="modal fade" id="Pilar3" tabindex="-1" role="dialog" aria-labelledby="Pilar3" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">Descentralizar toma de decisiones</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <p class="card-text"><small>¿Con qué frecuencia el facilitador colabora con los líderes
+                            organizacionales
+                            para lograr equipos de alto desempeño?</small></p>
+                        <div class="dropdown show">
+                          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Respuestas
+                          </a>
+
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre1Pi3" id="Pre1Pi3Nunca" value="1"
+                                checked [(ngModel)]=respuesta3.pre1Pi3>
+                              <label class="form-check-label" for="Nunca">
+                                Nunca
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre1Pi3" id="Pre1Pi3Ocasionalmente"
+                                value="2" [(ngModel)]=respuesta3.pre1Pi3>
+                              <label class="form-check-label" for="Ocasionalmente">
+                                Ocasionalmente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre1Pi3" id="Pre1Pi3Frecuentemente"
+                                value="3" [(ngModel)]=respuesta3.pre1Pi3>
+                              <label class="form-check-label" for="Frecuentemente">
+                                Frecuentemente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre1Pi3" id="Pre1Pi3Siempre" value="4"
+                                [(ngModel)]=respuesta3.pre1Pi3>
+                              <label class="form-check-label" for="Siempre">
+                                Siempre
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <p class="card-text"><small>¿Con qué frecuencia el facilitador logra que el equipo tome
+                            decisiones en
+                            consenso buscando la generación de valor?</small></p>
+                        <div class="dropdown show">
+                          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Respuestas
+                          </a>
+
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre2Pi3" id="Pre2Pi3Nunca" value="1"
+                                checked [(ngModel)]=respuesta3.pre2Pi3>
+                              <label class="form-check-label" for="Nunca">
+                                Nunca
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre2Pi3" id="Pre2Pi3Ocasionalmente"
+                                value="2" [(ngModel)]=respuesta3.pre2Pi3>
+                              <label class="form-check-label" for="Ocasionalmente">
+                                Ocasionalmente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre2Pi3" id="Pre2Pi3Frecuentemente"
+                                value="3" [(ngModel)]=respuesta3.pre2Pi3>
+                              <label class="form-check-label" for="Frecuentemente">
+                                Frecuentemente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre2Pi3" id="Pre2Pi3Siempre" value="4"
+                                [(ngModel)]=respuesta3.pre2Pi3>
+                              <label class="form-check-label" for="Siempre">
+                                Siempre
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-sm-2">
+                  </div>
+                  <div class="col-sm-8">
+                    <div class="form-group">
+                      <div class="card-header">
+                        <label for="P3Observa">Observaciones: </label>
+                        <textarea class="form-control" id="P3observa" name="observaP3" [(ngModel)]=respuesta3.observaP3
+                          rows="2" cols="300"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" (click)="guardarP3()" data-dismiss="modal" class="btn btn-primary">Guardar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <!--Fin Modal Pilar 3-->
+      <!--Modal Pilar 4-->
+      <form (ngSubmit)="guardarP4(respuestasP4)" #respuestasP4="ngForm">
+        <div class="modal fade" id="Pilar4" tabindex="-1" role="dialog" aria-labelledby="Pilar4" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">Cohesión para la acción</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <p class="card-text"><small>¿Con qué frecuencia el facilitador logra la participación y
+                            desarrollo
+                            efectivo de las distintas dinámicas del equipo (eventos, conversaciones, ciclos de
+                            trabajo)?</small>
+                        </p>
+                        <div class="dropdown show">
+                          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Respuestas
+                          </a>
+
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre1Pi4" id="Pre1Pi4Nunca" value="1"
+                                checked [(ngModel)]=respuesta4.pre1Pi4>
+                              <label class="form-check-label" for="Nunca">
+                                Nunca
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre1Pi4" id="Pre1Pi4Ocasionalmente"
+                                value="2" [(ngModel)]=respuesta4.pre1Pi4>
+                              <label class="form-check-label" for="Ocasionalmente">
+                                Ocasionalmente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre1Pi4" id="Pre1Pi4Frecuentemente"
+                                value="3" [(ngModel)]=respuesta4.pre1Pi4>
+                              <label class="form-check-label" for="Frecuentemente">
+                                Frecuentemente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre1Pi4" id="Pre1Pi4Siempre" value="4"
+                                [(ngModel)]=respuesta4.pre1Pi4>
+                              <label class="form-check-label" for="Siempre">
+                                Siempre
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <p class="card-text"><small>¿Con qué frecuencia el facilitador contribuye a que la declaración
+                            del
+                            equipo esté alineada al propósito del grupo Bancolombia?</small></p>
+                        <div class="dropdown show">
+                          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Respuestas
+                          </a>
+
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre2Pi4" id="Pre2Pi4Nunca" value="1"
+                                checked [(ngModel)]=respuesta4.pre2Pi4>
+                              <label class="form-check-label" for="Nunca">
+                                Nunca
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre2Pi4" id="Pre2Pi4Ocasionalmente"
+                                value="2" [(ngModel)]=respuesta4.pre2Pi4>
+                              <label class="form-check-label" for="Ocasionalmente">
+                                Ocasionalmente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre2Pi4" id="Pre2Pi4Frecuentemente"
+                                value="3" [(ngModel)]=respuesta4.pre2Pi4>
+                              <label class="form-check-label" for="Frecuentemente">
+                                Frecuentemente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre2Pi4" id="Pre2Pi4Siempre" value="4"
+                                [(ngModel)]=respuesta4.pre2Pi4>
+                              <label class="form-check-label" for="Siempre">
+                                Siempre
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <p class="card-text"><small>¿Con qué frecuencia el facilitador genera acciones con los miembros
+                            del
+                            equipo que permitan potenciarlo a partir de la diversidad en sus habilidades?</small></p>
+
+                        <div class="dropdown show">
+                          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Respuestas
+                          </a>
+
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre3Pi4" id="Pre3Pi4Nunca" value="1"
+                                checked [(ngModel)]=respuesta4.pre3Pi4>
+                              <label class="form-check-label" for="Nunca">
+                                Nunca
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre3Pi4" id="Pre3Pi4Ocasionalmente"
+                                value="2" [(ngModel)]=respuesta4.pre3Pi4>
+                              <label class="form-check-label" for="Ocasionalmente">
+                                Ocasionalmente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre3Pi4" id="Pre3Pi4Frecuentemente"
+                                value="3" [(ngModel)]=respuesta4.pre3Pi4>
+                              <label class="form-check-label" for="Frecuentemente">
+                                Frecuentemente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre3Pi4" id="P3Siempre" value="4"
+                                [(ngModel)]=respuesta4.pre3Pi4>
+                              <label class="form-check-label" for="Siempre">
+                                Siempre
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-sm-2">
+                  </div>
+                  <div class="col-sm-8">
+                    <div class="form-group">
+                      <div class="card-header">
+                        <label for="P4Observa">Observaciones: </label>
+                        <textarea class="form-control" id="P4observa" name="observaP4" [(ngModel)]=respuesta4.observaP4
+                          rows="2" cols="300"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+
+                <button type="button" (click)="guardarP4()" data-dismiss="modal" class="btn btn-primary">Guardar</button>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Fin Modal Pilar 4-->
+        <!--Modal Pilar 5-->
+      </form>
+      <form (ngSubmit)="guardarP5(respuestasP5)" #respuestasP5="ngForm">
+        <div class="modal fade" id="Pilar5" tabindex="-1" role="dialog" aria-labelledby="Pilar5" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">Adaptación al cliente y al monitoreo</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <p class="card-text"><small>¿Con qué frecuencia el facilitador promueve que existan espacios de
+                            feedback
+                            con clientes y usuarios, para garantizar que el trabajo este orientado a las necesidades del
+                            cliente?</small></p>
+                        <div class="dropdown show">
+                          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Respuestas
+                          </a>
+
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre1Pi5" id="Pre1Pi5Nunca" value="1"
+                                checked [(ngModel)]=respuesta5.pre1Pi5>
+                              <label class="form-check-label" for="Nunca">
+                                Nunca
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre1Pi5" id="Pre1Pi5Ocasionalmente"
+                                value="2" [(ngModel)]=respuesta5.pre1Pi5>
+                              <label class="form-check-label" for="Ocasionalmente">
+                                Ocasionalmente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre1Pi5" id="Pre1Pi5Frecuentemente"
+                                value="3" [(ngModel)]=respuesta5.pre1Pi5>
+                              <label class="form-check-label" for="Frecuentemente">
+                                Frecuentemente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre1Pi5" id="Pre1Pi5Siempre" value="4"
+                                [(ngModel)]=respuesta5.pre1Pi5>
+                              <label class="form-check-label" for="Siempre">
+                                Siempre
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <p class="card-text"><small>¿Con qué frecuencia el facilitador promueve la flexibilidad en el
+                            equipo y
+                            logra su adaptación rápida al entorno y cambios organizacionales?</small></p>
+                        <div class="dropdown show">
+                          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Respuestas
+                          </a>
+
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre2Pi5" id="Pre2Pi5Nunca" value="1"
+                                checked [(ngModel)]=respuesta5.pre2Pi5>
+                              <label class="form-check-label" for="Nunca">
+                                Nunca
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre2Pi5" id="Pre2Pi5Ocasionalmente"
+                                value="2" [(ngModel)]=respuesta5.pre2Pi5>
+                              <label class="form-check-label" for="Ocasionalmente">
+                                Ocasionalmente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre2Pi5" id="Pre2Pi5Frecuentemente"
+                                value="3" [(ngModel)]=respuesta5.pre2Pi5>
+                              <label class="form-check-label" for="Frecuentemente">
+                                Frecuentemente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre2Pi5" id="Pre2Pi5Siempre" value="4"
+                                [(ngModel)]=respuesta5.pre2Pi5>
+                              <label class="form-check-label" for="Siempre">
+                                Siempre
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <p class="card-text"><small>¿Con qué frecuencia el facilitador promueve que el equipo proponga
+                            diferentes alternativas de solución a partir de las necesidades de los clientes?</small></p>
+
+                        <div class="dropdown show">
+                          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Respuestas
+                          </a>
+
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre3Pi5" id="Pre3Pi5Nunca" value="1"
+                                checked [(ngModel)]=respuesta5.pre3Pi5>
+                              <label class="form-check-label" for="Nunca">
+                                Nunca
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre3Pi5" id="Pre3Pi5Ocasionalmente"
+                                value="2" [(ngModel)]=respuesta5.pre3Pi5>
+                              <label class="form-check-label" for="Ocasionalmente">
+                                Ocasionalmente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre3Pi5" id="Pre3Pi5Frecuentemente"
+                                value="3" [(ngModel)]=respuesta5.pre3Pi5>
+                              <label class="form-check-label" for="Frecuentemente">
+                                Frecuentemente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre3Pi5" id="Pre3Pi5Siempre" value="4"
+                                [(ngModel)]=respuesta5.pre3Pi5>
+                              <label class="form-check-label" for="Siempre">
+                                Siempre
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-sm-2">
+                  </div>
+                  <div class="col-sm-8">
+                    <div class="form-group">
+                      <div class="card-header">
+                        <label for="P5Observa">Observaciones: </label>
+                        <textarea class="form-control" id="P5Observa" name="observaP5" [(ngModel)]=respuesta5.observaP5
+                          rows="2" cols="300"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" (click)="guardarP5()" data-dismiss="modal" class="btn btn-primary">Guardar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <!--Fin Modal Pilar 5-->
+      <!--Modal Pilar 6-->
+      <form (ngSubmit)="guardarP6(respuestasP6)" #respuestasP6="ngForm">
+        <div class="modal fade" id="Pilar6" tabindex="-1" role="dialog" aria-labelledby="Pilar6" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">Mejora continua</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <p class="card-text"><small>¿Con qué frecuencia el facilitador ayuda al equipo a identificar
+                            patrones
+                            de
+                            comportamiento en los impedimentos y promueve alternativas de solución para evitar que
+                            ocurran
+                            nuevamente?</small></p>
+                        <div class="dropdown show">
+                          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Respuestas
+                          </a>
+
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre1Pi6" id="Pre1Pi6Nunca" value="1"
+                                checked [(ngModel)]=respuesta6.pre1Pi6>
+                              <label class="form-check-label" for="Nunca">
+                                Nunca
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre1Pi6" id="P2Ocasionalmente"
+                                value="2" [(ngModel)]=respuesta6.pre1Pi6>
+                              <label class="form-check-label" for="Ocasionalmente">
+                                Ocasionalmente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre1Pi6" id="Pre1Pi6Frecuentemente"
+                                value="3" [(ngModel)]=respuesta6.pre1Pi6>
+                              <label class="form-check-label" for="Frecuentemente">
+                                Frecuentemente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre1Pi6" id="Pre1Pi6Siempre" value="4"
+                                [(ngModel)]=respuesta6.pre1Pi6>
+                              <label class="form-check-label" for="Siempre">
+                                Siempre
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <p class="card-text"><small>¿Con qué frecuencia el facilitador genera confianza para que el
+                            equipo
+                            pueda
+                            conversar abiertamente sobre sus diferencias, en pro de aprender de ellas y evitar que
+                            sucedan
+                            nuevamente?</small></p>
+                        <div class="dropdown show">
+                          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Respuestas
+                          </a>
+
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre2Pi6" id="Pre2Pi6Nunca" value="1"
+                                checked [(ngModel)]=respuesta6.pre2Pi6>
+                              <label class="form-check-label" for="Nunca">
+                                Nunca
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre2Pi6" id="Pre2Pi6Ocasionalmente"
+                                value="2" [(ngModel)]=respuesta6.pre2Pi6>
+                              <label class="form-check-label" for="Ocasionalmente">
+                                Ocasionalmente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre2Pi6" id="Pre2Pi6Frecuentemente"
+                                value="3" [(ngModel)]=respuesta6.pre2Pi6>
+                              <label class="form-check-label" for="Frecuentemente">
+                                Frecuentemente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre2Pi6" id="Pre2Pi6Siempre" value="4"
+                                [(ngModel)]=respuesta6.pre2Pi6>
+                              <label class="form-check-label" for="Siempre">
+                                Siempre
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <p class="card-text"><small>¿Con qué frecuencia el facilitador identifica, genera y evalua con
+                            el
+                            equipo
+                            el plan de mejora continua a nivel de personas, equipo, procesos y herramientas
+                            (capacitaciones,
+                            conceptos ágiles, habilidades blandas y técnicas)?</small></p>
+
+                        <div class="dropdown show">
+                          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Respuestas
+                          </a>
+
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre3Pi6" id="Pre3Pi6Nunca" value="1"
+                                checked [(ngModel)]=respuesta6.pre3Pi6>
+                              <label class="form-check-label" for="Nunca">
+                                Nunca
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre3Pi6" id="Pre3Pi6Ocasionalmente"
+                                value="2" checked [(ngModel)]=respuesta6.pre3Pi6>
+                              <label class="form-check-label" for="Ocasionalmente">
+                                Ocasionalmente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre3Pi6" id="Pre3Pi6Frecuentemente"
+                                value="3" checked [(ngModel)]=respuesta6.pre3Pi6>
+                              <label class="form-check-label" for="Frecuentemente">
+                                Frecuentemente
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="pre3Pi6" id="Pre3Pi6Siempre" value="4"
+                                checked [(ngModel)]=respuesta6.pre3Pi6>
+                              <label class="form-check-label" for="Siempre">
+                                Siempre
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-sm-2">
+                  </div>
+                  <div class="col-sm-8">
+                    <div class="form-group">
+                      <div class="card-header">
+                        <label for="P6Observa">Observaciones: </label>
+                        <textarea class="form-control" id="P6Observa" name="observaP6" checked
+                          [(ngModel)]=respuesta6.observaP6 rows="2" cols="300"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" (click)="guardarP6()" data-dismiss="modal" class="btn btn-primary">Guardar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <!--Fin Modal Pilar 6-->
+   
